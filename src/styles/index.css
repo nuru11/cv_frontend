@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+:root {
+  --h2-font-size: 30px;
+  --primary-color: black;
+  --header-color: white;
+  --text-color: black;
+  --text-size: 1rem;
+  --text-italic: normal;
+  --text-underline: normal;
+  --text-bold: normal;
+  --section-size: 1.5em;
+  --section-italic: normal;
+  --section-underline: normal;
+  --section-bold: normal;
+}
+
+
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.5rem;
+}
+.header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-auto-rows: 1fr;
+  background-color: var(--primary-color);
+}
+.header h1 {font-size:2.2em;font-weight: bold; }
+.header p, .header h1, .header a {
+  color: var(--header-color); 
+}
+
+
+
+
+
+/***** Inputs *******/
+
+.inputSection {
+  margin: 1em; 
+}
+
+
+
+input, textarea, select {
+  width: 100%; 
+}
+
+input, button, textarea, select {
+  border-radius: 2px;
+  outline: none;
+  border:1px solid;
+  margin: 0;
+}
+.Error {
+  border: 3px solid red;
+}
+
+button{
+  border-radius: 5px;
+  padding: 2px 5px; 
+  outline: none; 
+  border: 1ps solid transparent; 
+  background-color:rgb(73, 73, 109);
+  color: white;
+  cursor: pointer;
+  transition: 0.2s
+}
+button:hover {
+  color:rgb(73, 73, 109); 
+  background-color: white;
+  border: 1px solid rgb(73, 73, 109);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+}
+/*** print button ****/
+#printBtn {
+  width: max-content;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  padding: 10px 100px; 
+  margin: 10px;
+  font-weight: bold;
+}
+
+
+/**** Text styling ****/
+
+.p-text {
+  color: var(--text-color);
+  font-size: var(--text-size);
+  font-style: var(--text-italic);
+  text-decoration: var(--text-underline);
+  font-weight: var(--text-bold);
+}
+
+.section-label {
+  font-size: var(--section-size);
+  font-style: var(--section-italic);
+  text-decoration: var(--section-underline);
+  font-weight: var(--section-bold);
+}
+
+
+.prim-col{color: var(--primary-color);}
+
+/*** Title of the input side ****/
+.title {color: black}
+
+
+/***** Education ******/
+.edName {
+  display: grid; 
+  grid-template-columns: 2fr 1fr;
+}
+
+
+/***** Career ******/
+.careerName {
+  display: grid; 
+  grid-template-columns: 2fr 1fr;
+}
+
+/***** Projects ******/
+.projectName {
+  display: grid; 
+  grid-template-columns: 2fr 1fr;
+}
+
+/***** Skills ******/
+.skills {
+  display: flex; 
+  flex-wrap: wrap; 
+  column-gap: 20px; 
+}
+.skills li {
+  list-style-position: inside;
+}
+
+.skills li span {
+  position: relative; 
+  left: -5px; 
+}
+
+/***** references ******/
+.ref {
+  display: flex; 
+  flex-direction: column;
+}
+
+
+
+/***** Footer *****/
+Footer {
+  width: 100%; 
+  grid-column: 1/3; 
+  background: #191919; 
+  color: white;
+  padding: 20px;
+}
+
+footer ul {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-evenly;
+}
+
+footer li {
+  list-style-type: none;
+}
+
+footer a {
+  color: white; 
+}
+
+footer a>*{
+  transition: 0.2s;
+}
+
+footer a:hover>* {
+  transform: scale(1.1);
+}
+footer .fa-youtube:hover{
+  color: red;
+}
+footer .fa-globe:hover{
+  color: rgb(129, 129, 214);
+}
+
+footer img {
+  height: 50px; 
+  width: 50px; 
+}
+
+/**** Document style ****/
+
+.d-input {
+  display: grid;
+  grid-template-columns:minmax(150px,auto) 1fr;
+  margin-bottom: 5px; 
+  align-items: center;
+}
+.d-input label {
+  width: 100%; 
+}

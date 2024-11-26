@@ -1,0 +1,43 @@
+.detail-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+  }
+  
+  .image-gallery {
+    margin-bottom: 30px;
+  }
+  
+  .images {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .images img {
+    width: 100%;
+    max-width: 200px; /* Set a max width for images */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .loading {
+    font-size: 18px;
+    color: #f39c12;
+  }
+  
+  .error {
+    color: red;
+    font-size: 18px;
+  }

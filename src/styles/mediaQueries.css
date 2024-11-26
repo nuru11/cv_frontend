@@ -1,0 +1,33 @@
+
+@media screen and (min-width: 600px) {
+    
+}
+
+/******* Mobile *********/
+@media screen and (max-width: 600px) {
+    .grid-sm {
+        display:grid; 
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto;
+    
+    }
+    
+}
+
+
+/******* on print *******/
+
+
+@media print {
+    body {
+      print-color-adjust:exact;
+      -webkit-print-color-adjust:exact;
+    }
+    .print-hide {
+      display: none;
+    }
+  
+    .print-page {
+      grid-column: 1/3;
+    }
+  } 
