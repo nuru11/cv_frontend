@@ -207,8 +207,8 @@ import TestMysql from "./screens/testmysql";
 const router = createBrowserRouter([
   {
     path: '/',
-    // element: <ProtectedRoute element={<Home />} adminOnly={true} />,
-    element: <Home />,
+    element: <ProtectedRoute element={<Home />} adminOnly={true} />,
+    // element: <Home />,
     errorElement: <div>404 Not Found</div>
   },
   // {
