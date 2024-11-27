@@ -186,11 +186,35 @@ class NameArea extends Component {
                             
                         </div>
 
-                        <div className="input-container">
+                        {/* <div className="input-container">
                         <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Gender</span>*</span>
                             <Inputs className="input-spacing" onFocus={onInputFocus} onBlur={onInputBlur} placeholder='sex' TextVal={this.props.info.sex} callback={this.props.callback} idVal={'personalInfo-sex-input'} />
                             { this.props.info.sex === "" && this.props.info.emptyfield === true ? <div style={{color: "red"}}>this field is required</div> : ""}
-                        </div>
+                        </div> */}
+ <div className="input-container">
+                        <div className="project-form-group">
+    <label htmlFor={`personalInfo-sex-input`}>
+    <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Gender</span>*</span>
+    </label>
+    <select
+    onFocus={onInputFocus} onBlur={onInputBlur}
+        value={this.props.info.sex}
+        onChange={this.props.callback}
+        id={`personalInfo-sex-input`}
+        className="project-form-control"
+        style={{ color: this.props.info.sex ? 'black' : '#AFAFAF' }} // Change color based on value
+    >
+        <option value="" style={{ color: '#AFAFAF' }}>Gender</option>
+        <option value="none">None</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+       
+
+    </select>
+    { this.props.info.sex === "" && this.props.info.emptyfield === true ? <div style={{color: "red"}}>this field is required</div> : ""}
+</div>
+
+</div>
 
                         <div className="input-container">
                         {/* <span className="required">*</span> */}
