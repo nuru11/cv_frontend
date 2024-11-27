@@ -594,15 +594,62 @@ const DetailPage = () => {
 
 const pdfRef = useRef();
 
+// const downloadCV = () => {
+//   const element = pdfRef.current;
+
+//   // Configuration for html2pdf
+//   const config = {
+//     filename: 'Embassy.pdf',
+//     image: { type: 'jpeg', quality: 0.98 },
+//     html2canvas: { scale: 2, logging: true, dpi: 300, letterRendering: true },
+//     jsPDF: { unit: 'mm', format: 'letter', orientation: 'Portrait' }
+//   };
+
+//   html2pdf()
+//     .from(element)
+//     .set(config)
+//     .toPdf()
+//     .get('pdf')
+//     .then(pdf => {
+//       const totalPages = pdf.internal.getNumberOfPages();
+//       const phoneNumber = `${dayName}, ${monthName} ${dayNumber}, ${year}`; // Replace with your phone number
+//       const email = "www.ntechagent.com | +251 911 454176 | ntechagent@gmail.com"; // Replace with your email
+
+//       for (let i = 1; i <= totalPages; i++) {
+//         pdf.setPage(i);
+//         pdf.setFontSize(10);
+//         pdf.setTextColor(5);
+
+//         // Set positions
+//         const pageYPosition = pdf.internal.pageSize.getHeight() - 10; // Y position for footer
+//         const leftXPosition = 3; // X position for left side text
+//         const rightXPosition = pdf.internal.pageSize.getWidth() - 22; // Base position for page number
+//         const centerXPosition = pdf.internal.pageSize.getWidth() / 2; // Center position
+
+//         // Add phone number on the left
+//         pdf.text(`${phoneNumber}`, leftXPosition, pageYPosition);
+
+//         // Add email in the center   
+//         pdf.text(` ${email}`, centerXPosition, pageYPosition, { align: 'center' });
+
+//         // Add page number and total pages to the footer on the right
+//         pdf.text(`Page ${i} of ${totalPages}`, rightXPosition, pageYPosition);
+//         // pdf.text(`of ${totalPages}`, rightXPosition - 20, pageYPosition); // Adjust to fit
+//       }
+//     })
+//     .save();
+// };
+
 const downloadCV = () => {
   const element = pdfRef.current;
 
   // Configuration for html2pdf
+  const isMobile = window.innerWidth <= 768; // Adjust based on your breakpoints
   const config = {
     filename: 'Embassy.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, logging: true, dpi: 300, letterRendering: true },
-    jsPDF: { unit: 'mm', format: 'letter', orientation: 'Portrait' }
+    html2canvas: { scale: isMobile ? 1 : 2, logging: true, dpi: 300, letterRendering: true },
+    jsPDF: { unit: 'mm', format: isMobile ? 'A4' : 'letter', orientation: 'Portrait' }
   };
 
   html2pdf()
@@ -624,17 +671,17 @@ const downloadCV = () => {
         const pageYPosition = pdf.internal.pageSize.getHeight() - 10; // Y position for footer
         const leftXPosition = 3; // X position for left side text
         const rightXPosition = pdf.internal.pageSize.getWidth() - 22; // Base position for page number
-        const centerXPosition = pdf.internal.pageSize.getWidth() / 2; // Center position
+        const centerXPosition = pdf.internal.pageSize.getWidth() / 2 + 10; // Center position
 
         // Add phone number on the left
         pdf.text(`${phoneNumber}`, leftXPosition, pageYPosition);
 
-        // Add email in the center   
+        // Add email in the center
         pdf.text(` ${email}`, centerXPosition, pageYPosition, { align: 'center' });
 
         // Add page number and total pages to the footer on the right
         pdf.text(`Page ${i} of ${totalPages}`, rightXPosition, pageYPosition);
-        // pdf.text(`of ${totalPages}`, rightXPosition - 20, pageYPosition); // Adjust to fit
+        // pdf.text(`${email}`, rightXPosition, pageYPosition);
       }
     })
     .save();
@@ -2272,7 +2319,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
                         {/* 2th line */}
 
-                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
                                       <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>Mother Name</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -2284,7 +2331,7 @@ src={data.passportImageUrl || imagePlaceholder}
                     {/* 3th line */}
 
 
-                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
 
 
                                       <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "47%"}}>
@@ -2323,7 +2370,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 {/* 4th line */}
 
-                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+                        <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "47%"}}>
@@ -2347,7 +2394,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
  <div  style={{display: "flex", justifyContent: "space-between", width: "58%",}}>
 <span style={{fontFamily: "serif",  fontSize: "13px",}}>Current Nationality : </span>
-<span style={{fontWeight:"bold",fontFamily: "serif",  fontSize: "13px",}}>{data.currentNationality}</span>
+<span style={{fontWeight:"bold",fontFamily: "serif",  fontSize: window.innerWidth <= 768 && data.currentNationality !== "Ethiopia" ? "10px" : "13px"}}>{data.currentNationality}</span>
 </div>
 
 
@@ -2364,7 +2411,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 {/* 5th line */}
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "47%"}}>
@@ -2406,7 +2453,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 6th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "47%"}}>
@@ -2440,7 +2487,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 {/* 7th line */}
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "47%"}}>
@@ -2481,7 +2528,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 8th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black",paddingBottom: "5px", marginTop: "1px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
                                       <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>Home address and telephone No. :</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -2505,7 +2552,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 10th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "1px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "1px"}}>
                                       <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>Business address and telephone No. :</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -2539,7 +2586,7 @@ src={data.passportImageUrl || imagePlaceholder}
      
 
                                         <div style={{display: "flex", justifyContent: "space-between",  width: "75%",}}>
-                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "work" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "50px", paddingLeft: "7px"}}>Work</span>
+                                        {/* <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "work" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "50px", paddingLeft: "7px"}}>Work</span>
                                         <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "transit" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "55px", paddingLeft: "7px"}}>Transit</span>
 
                                         <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "workingvisit" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "50px", paddingLeft: "7px"}}>Visit</span>
@@ -2549,7 +2596,22 @@ src={data.passportImageUrl || imagePlaceholder}
                                         <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "hajj" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "45px", paddingLeft: "7px"}}>Hajj</span>
 
                                         <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "diplomacy" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "80px", paddingLeft: "7px"}}>Diplomacy</span>
-                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "other" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "50px", paddingLeft: "7px"}}>Other</span>
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType.toLowerCase() === "other" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: "50px", paddingLeft: "7px"}}>Other</span> */}
+
+
+
+
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "work" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "55px" : "50px", paddingLeft: "7px"}}>Work</span>
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "transit" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "60px" : "55px", paddingLeft: "7px"}}>Transit</span>
+
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "workingvisit" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "55px" : "50px", paddingLeft: "7px"}}>Visit</span>
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "umrah" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "60px" : "55px", paddingLeft: "7px"}}>Umrah</span>
+
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "residence" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "82px" : "73px", paddingLeft: "7px"}}>Residence</span>
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "hajj" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "50px" : "45px", paddingLeft: "7px"}}>Hajj</span>
+
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "diplomacy" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "89px" : "80px", paddingLeft: "7px"}}>Diplomacy</span>
+                                        <span style={{fontFamily: "serif",  fontSize: "15px", background: `${data.visaType === "other" ? "#88898a" : ""}`, marginTop: "-7px", marginBottom: "-5px", paddingTop: "7px", width: window.innerWidth <= 768 ? "55px" : "50px", paddingLeft: "7px"}}>Other</span>
 
                                         </div>
 
@@ -2635,7 +2697,7 @@ src={data.passportImageUrl || imagePlaceholder}
 <div>
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: "5px", marginTop: "2px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "2px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", }}>
@@ -2949,7 +3011,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 17th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: "5px", marginTop: "2px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid black", paddingBottom: window.innerWidth <= 768 ? "2px" : "5px", marginTop: "2px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", }}>
@@ -3082,13 +3144,12 @@ src={data.passportImageUrl || imagePlaceholder}
                         </div>
 
 
-
 {/* 21th line */}
 
 
 <div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "1px", }}>
                                       <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "60%"}}>
-                                        <span style={{fontFamily: "serif",  fontSize: "13px",}}>The undersigned hereby certify that all the information I have provided are correct</span>
+                                        <span style={{fontFamily: "serif",  fontSize: window.innerWidth <= 768 ? "10px" : "13px",}}>The undersigned hereby certify that all the information I have provided are correct</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
                                         </div>
 
@@ -3099,9 +3160,9 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 22th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "-3px", }}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: window.innerWidth <= 768 ? "0" : "-3px", }}>
                                       <div style={{fontFamily: "serif",  fontSize: "8px",  display: "flex", justifyContent: "space-between", width: "60%"}}>
-                                        <span style={{fontFamily: "serif",  fontSize: "13px",}}>I will abide by the lows of the Kingdom during the period of my residence in it. </span>
+                                        <span style={{fontFamily: "serif", fontSize: window.innerWidth <= 768 ? "10px" : "13px",}}>I will abide by the lows of the Kingdom during the period of my residence in it. </span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
                                         </div>
 
@@ -3113,7 +3174,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 23th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: "5px", marginTop: "3px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: "5px", marginTop: window.innerWidth <= 768 ? "-3px" : "5px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "46%"}}>
@@ -3160,7 +3221,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "3px", }}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: window.innerWidth <= 768 ? "-3px" : "3px", }}>
                                       <div style={{fontFamily: "serif",  fontSize: "8px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>For offical use only:</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -3176,7 +3237,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: "5px", marginTop: "3px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: window.innerWidth <= 768 ? "-1px" : "5px", marginTop: window.innerWidth <= 768 ? "-3px" : "3px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "46%"}}>
@@ -3222,7 +3283,7 @@ src={data.passportImageUrl || imagePlaceholder}
 {/* 26th line */}
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "3px", }}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: window.innerWidth <= 768 ? "-3px" : "3px" }}>
                                       <div style={{fontFamily: "serif",  fontSize: "8px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>Type</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -3238,7 +3299,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: "5px", marginTop: "3px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "13px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", paddingBottom: window.innerWidth <= 768 ? "0" : "5px", marginTop: window.innerWidth <= 768 ? "-3px" : "3px"}}>
 
 
 <div style={{fontFamily: "serif",  fontSize: "13px",  display: "flex", justifyContent: "space-between", width: "49.7%"}}>
@@ -3284,7 +3345,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "3px", }}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: window.innerWidth <= 768 ? "-3px" : "3px", }}>
                                       <div style={{fontFamily: "serif",  fontSize: "8px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>رئيس القسم القنصلي</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
@@ -3300,7 +3361,7 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 
-<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: "3px"}}>
+<div className="first-line" style={{fontFamily: "serif",  fontSize: "8px", display: "flex", justifyContent: "space-between", borderBottom: "2px solid transparent", marginTop: window.innerWidth <= 768 ? "-3px" : "3px",}}>
                                       <div style={{fontFamily: "serif",  fontSize: "8px",  display: "flex", justifyContent: "space-between", width: "35%"}}>
                                         <span style={{fontFamily: "serif",  fontSize: "13px",}}>Head of consular section</span>
                                         {/* <span style={{fontWeight:"bold", fontSize: "13px", fontFamily: "serif",}}>NIYASA GETANA AREDA </span> */}
