@@ -385,26 +385,26 @@ const calculateAge = (dob) => {
 
 
 useEffect(() => {
-    if (dob) {
-      const calculatedAge = calculateAge(dob);
-      setAge(calculatedAge);
+    // if (dob) {
+    //   const calculatedAge = calculateAge(dob);
+    //   setAge(calculatedAge);
 
-      // Set error message if age is less than 19
-      if (calculatedAge < 18) {
-        setStyles(styles.styleThree = false)
-        setErrorMessage('Applicant age should be more than 18');
-      } else if (calculatedAge < 21) {
-        setStyles(styles.styleOne = false)
-        setStyles(styles.styleTwo = false)
-        setStyles(styles.styleFour = false)
+    //   // Set error message if age is less than 19
+    //   if (calculatedAge < 18) {
+    //     setStyles(styles.styleThree = false)
+    //     setErrorMessage('Applicant age should be more than 18');
+    //   } else if (calculatedAge < 21) {
+    //     setStyles(styles.styleOne = false)
+    //     setStyles(styles.styleTwo = false)
+    //     setStyles(styles.styleFour = false)
   
-      } else {
-        setErrorMessage(''); // Clear error message if age is valid
-      }
-    } else {
-      setAge('');
-      setErrorMessage(''); // Clear error message if no DOB is entered
-    }
+    //   } else {
+    //     setErrorMessage(''); // Clear error message if age is valid
+    //   }
+    // } else {
+    //   setAge('');
+    //   setErrorMessage(''); // Clear error message if no DOB is entered
+    // }
 
   
   }, [dob]);
@@ -441,12 +441,17 @@ useEffect(() => {
     
           // Set error message if age is less than 19
           if (calculatedAge < 18) {
-            setStyles(styles.styleThree = false)
+            // setStyles(styles.styleThree = false)
+            styles.styleThree = false
             setErrorMessage('Applicant age should be more than 18');
           } else if (calculatedAge < 21) {
-            setStyles(styles.styleOne = false)
-            setStyles(styles.styleTwo = false)
-            setStyles(styles.styleFour = false)
+            // setStyles(styles.styleOne = false)
+            // setStyles(styles.styleTwo = false)
+            // setStyles(styles.styleFour = false)
+
+           styles.styleOne = false
+            styles.styleTwo = false
+            styles.styleFour = false
       
           } else {
             setErrorMessage(''); // Clear error message if age is valid
