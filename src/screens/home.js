@@ -2464,7 +2464,7 @@ src={applicantpersonalimagePreview !== null
 <div>{personalInfo.passportNo}</div>
 <div>رقم جواز السفر</div>
 <div>DATE OF BIRTH</div>
-<div>{dob}</div>
+<div>{personalInfo.dateOfBirth}</div>
 <div>تاريخ الميلاد</div>
 <div>DATE OF ISSUE</div>
 <div>{dateOfIssue}</div>
@@ -2701,7 +2701,7 @@ src={applicantpersonalimagePreview !== null
 <div>{personalInfo.passportNo}</div>
 <div>رقم جواز السفر</div>
 <div>DATE OF BIRTH</div>
-<div>{dob}</div>
+<div>{personalInfo.dateOfBirth}</div>
 <div>تاريخ الميلاد</div>
 <div>DATE OF ISSUE</div>
 <div>{dateOfIssue}</div>
@@ -2938,7 +2938,7 @@ src={applicantpersonalimagePreview !== null
 <div>{personalInfo.passportNo}</div>
 <div>رقم جواز السفر</div>
 <div>DATE OF BIRTH</div>
-<div>{dob}</div>
+<div>{personalInfo.dateOfBirth}</div>
 <div>تاريخ الميلاد</div>
 <div>DATE OF ISSUE</div>
 <div>{dateOfIssue}</div>
@@ -3176,7 +3176,7 @@ src={applicantpersonalimagePreview !== null
 <div>{personalInfo.passportNo}</div>
 <div>رقم جواز السفر</div>
 <div>DATE OF BIRTH</div>
-<div>{dob}</div>
+<div>{personalInfo.dateOfBirth}</div>
 <div>تاريخ الميلاد</div>
 <div>DATE OF ISSUE</div>
 <div>{dateOfIssue}</div>
