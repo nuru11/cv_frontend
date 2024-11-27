@@ -2502,7 +2502,7 @@ src={applicantpersonalimagePreview !== null
 <div style={{height: 35}}> {salaries.saudi}{salaries.saudi ? " SAR" : ""}</div>
 <div style={{height: 35}}>الراتب الشهري</div>
 <div style={{height: 35}}>CONTRACT PERIOD</div>
-<div style={{height: 35}}>{personalInfo.contractPeriod}</div>
+<div style={{height: 35}}>{sponsorInformation.contract}</div>
 <div style={{height: 35}}>مدة التعاقد</div>
 <div style={{height: 35}}>ARABIC DEGREE</div>
 <div style={{height: 35}}>{personalInfo.arabicDegree}</div>
@@ -2739,7 +2739,7 @@ src={applicantpersonalimagePreview !== null
 <div style={{height: 35}}> {salaries.saudi}{salaries.saudi ? " SAR" : ""}</div>
 <div style={{height: 35}}>الراتب الشهري</div>
 <div style={{height: 35}}>CONTRACT PERIOD</div>
-<div style={{height: 35}}>{personalInfo.contractPeriod}</div>
+<div style={{height: 35}}>{sponsorInformation.contract}</div>
 <div style={{height: 35}}>مدة التعاقد</div>
 <div style={{height: 35}}>ARABIC DEGREE</div>
 <div style={{height: 35}}>{personalInfo.arabicDegree}</div>
@@ -2976,7 +2976,7 @@ src={applicantpersonalimagePreview !== null
 <div style={{height: 35}}> {salaries.jordan}{salaries.jordan ? "$" : ""}</div>
 <div style={{height: 35}}>الراتب الشهري</div>
 <div style={{height: 35}}>CONTRACT PERIOD</div>
-<div style={{height: 35}}>{personalInfo.contractPeriod}</div>
+<div style={{height: 35}}>{sponsorInformation.contract}</div>
 <div style={{height: 35}}>مدة التعاقد</div>
 <div style={{height: 35}}>ARABIC DEGREE</div>
 <div style={{height: 35}}>{personalInfo.arabicDegree}</div>
@@ -3214,7 +3214,7 @@ src={applicantpersonalimagePreview !== null
 <div style={{height: 35}}> {salaries.saudi}{salaries.saudi ? " SAR" : ""}</div>
 <div style={{height: 35}}>الراتب الشهري</div>
 <div style={{height: 35}}>CONTRACT PERIOD</div>
-<div style={{height: 35}}>{personalInfo.contractPeriod}</div>
+<div style={{height: 35}}>{sponsorInformation.contract}</div>
 <div style={{height: 35}}>مدة التعاقد</div>
 <div style={{height: 35}}>ARABIC DEGREE</div>
 <div style={{height: 35}}>{personalInfo.arabicDegree}</div>
