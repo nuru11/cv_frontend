@@ -1302,167 +1302,83 @@
 
 
 //////////////////
-import React, { useRef } from 'react';
+import React from 'react';
 import html2pdf from 'html2pdf.js';
 
 const TableToPdf = () => {
-    const pdfRef = useRef();
+    const downloadMultipleCVs = async () => {
+        const pdfElements = [
+            { elementId: 'KaanAlRiyadhCv', filename: 'KaanAlRiyadh.pdf' },
+            // Add more elements as needed
+        ];
 
-    const generatePDF = () => {
-        const element = pdfRef.current;
-        html2pdf()
-            .from(element)
-            .save('table.pdf');
+        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
+            const element = document.getElementById(elementId);
+            const options = {
+                margin: 0.5,
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+            };
+
+            return html2pdf().from(element).set(options).save();
+        });
+
+        await Promise.all(downloadPromises);
     };
 
     return (
         <div>
-            <div ref={pdfRef} style={{ padding: '20px' }}>
-                <style>
-                    {`
-                        table {
-                            width: 100%;
-                            border-collapse: collapse;
-                        }
-                        th, td {
-                            border: 1px solid #000;
-                            padding: 8px;
-                            text-align: left;
-                        }
-                        th {
-                            background-color: #f2f2f2;
-                        }
-                        @media (max-width: 600px) {
-                            table, th, td {
-                                display: block;
-                                width: 100%;
-                            }
-                        }
-                    `}
-                </style>
-                <h2>Table Example</h2>
-                <table>
+            <div id="KaanAlRiyadhCv" style={{ display: '' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
-                            <th colSpan="3">Personal Information</th>
-                            <th colSpan="5">Previous Experience</th>
-                        </tr>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Email</th>
-                            <th>Job Title</th>
-                            <th>Company</th>
-                            <th>Location</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>First Name</span>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأول</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>Middle Name</span>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأوسط</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>Last Name</span>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>اسم العائلة</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>Surname</span>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>اللقب</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>CV Code</span>
+                                    <span style={{ fontSize: '10px', color: 'black' }}>رمز السيرة الذاتية</span>
+                                </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>john.doe@example.com</td>
-                            <td>Software Engineer</td>
-                            <td>Tech Corp</td>
-                            <td>New York</td>
-                            <td>2020-01-01</td>
-                            <td>2022-01-01</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>John</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>A.</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>Doe</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>Smith</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>CV001</td>
                         </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>28</td>
-                            <td>jane.smith@example.com</td>
-                            <td>Data Analyst</td>
-                            <td>Data Inc</td>
-                            <td>San Francisco</td>
-                            <td>2019-05-01</td>
-                            <td>2021-05-01</td>
-                        </tr>
-                        <tr>
-                            <td>Michael Brown</td>
-                            <td>35</td>
-                            <td>michael.brown@example.com</td>
-                            <td>Project Manager</td>
-                            <td>Business Solutions</td>
-                            <td>Chicago</td>
-                            <td>2018-03-01</td>
-                            <td>2020-03-01</td>
-                        </tr>
-                        <tr>
-                            <td>Emily Davis</td>
-                            <td>26</td>
-                            <td>emily.davis@example.com</td>
-                            <td>UX Designer</td>
-                            <td>Design Studio</td>
-                            <td>Austin</td>
-                            <td>2021-06-01</td>
-                            <td>2023-06-01</td>
-                        </tr>
-                        <tr>
-                            <td>David Wilson</td>
-                            <td>29</td>
-                            <td>david.wilson@example.com</td>
-                            <td>Marketing Specialist</td>
-                            <td>Marketing Co</td>
-                            <td>Los Angeles</td>
-                            <td>2020-02-01</td>
-                            <td>2022-02-01</td>
-                        </tr>
-                        <tr>
-                            <td>Sarah Johnson</td>
-                            <td>32</td>
-                            <td>sarah.johnson@example.com</td>
-                            <td>Content Writer</td>
-                            <td>Writing Hub</td>
-                            <td>Miami</td>
-                            <td>2019-09-01</td>
-                            <td>2021-09-01</td>
-                        </tr>
-                        <tr>
-                            <td>Robert Martinez</td>
-                            <td>40</td>
-                            <td>robert.martinez@example.com</td>
-                            <td>System Administrator</td>
-                            <td>IT Services</td>
-                            <td>Seattle</td>
-                            <td>2017-12-01</td>
-                            <td>2020-12-01</td>
-                        </tr>
-                        <tr>
-                            <td>Alice Lee</td>
-                            <td>27</td>
-                            <td>alice.lee@example.com</td>
-                            <td>Network Engineer</td>
-                            <td>Network Solutions</td>
-                            <td>Boston</td>
-                            <td>2021-04-01</td>
-                            <td>2023-04-01</td>
-                        </tr>
-                        <tr>
-                            <td>Chris Evans</td>
-                            <td>31</td>
-                            <td>chris.evans@example.com</td>
-                            <td>Business Analyst</td>
-                            <td>Consulting Firm</td>
-                            <td>Denver</td>
-                            <td>2018-08-01</td>
-                            <td>2021-08-01</td>
-                        </tr>
-                        <tr>
-                            <td>Laura Wilson</td>
-                            <td>25</td>
-                            <td>laura.wilson@example.com</td>
-                            <td>Graphic Designer</td>
-                            <td>Creative Agency</td>
-                            <td>Portland</td>
-                            <td>2022-01-01</td>
-                            <td>2023-01-01</td>
-                        </tr>
+                        {/* Add more rows as needed */}
                     </tbody>
                 </table>
             </div>
-            <button onClick={generatePDF} style={{ marginTop: '20px' }}>
+            <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
                 Generate PDF
             </button>
         </div>

@@ -1516,6 +1516,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                 // jsPDF: { unit: 'in', format: [8.5, 10.99],  /*format: 'letter',*/ orientation: 'portrait' }
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
+            
     
             return html2pdf().from(element).set(options).save();
         });
