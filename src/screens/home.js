@@ -106,7 +106,7 @@ const handleToggleChange = (event) => {
       });
 
       const initialPersonalInfo = {emptyfield: true, name: '', middleName: "", email: '', phone: '', about: '', surname: "", placeOfBirth: "", passportNo: "",passportIssuePlace: "", nationality: "ETHIOPIA", maritalStatus: "", numberOfChildren: "", religion: "", weight: "", height: "", educationAttainment: "", postAppliedFor: "", contractPeriod: "2", arabicDegree: "", englishDegree: "", ownPhoneNumber: "", contactPhoneNumber: "", monthlysalarySaudi: "", monthlysalaryJordan: "", idno: "", sex: "", visaNo: "", passportType: "", placeOfIssue: "", emptyfield: false, dateOfBirth: "", age:"", country: "", position: "", period: "", applicationNo: ""}
-      const initialSponsorInfo = {visaNo: "", sponsorId: "", sponsorAdress: "", sponsorCity: "", nationalId: "", email: "", sponsorName: "", sponsorPhone: "", agent: "", sponsorArabic: '', visaType: "", fileNo: "", wakala: "", signedUp: "", biometricId: "", contract: "", stickerVisa: "", currentNationality: "", laborId: "", sponsorInformationEmptyfield: false}
+      const initialSponsorInfo = {visaNo: "", sponsorId: "", sponsorAdress: "", sponsorCity: "", nationalId: "", email: "", sponsorName: "", sponsorPhone: "", agent: "", sponsorArabic: '', visaType: "", fileNo: "", wakala: "", signedUp: "", biometricId: "", contract: "2", stickerVisa: "", currentNationality: "Ethiopia", laborId: "", sponsorInformationEmptyfield: false}
     const [personalInfo, setPersonalInfo] = useState(initialPersonalInfo);
     const [sponsorInformation, setSponsorInfo] = useState(initialSponsorInfo);
     const [educationInfo, setEducationInfo] = useState({ institute: [{ school: '', from: '', to: '', grade: '', areaStudy: '', overview: '' }] });
@@ -2479,7 +2479,7 @@ src={applicantpersonalimagePreview !== null
 <div>{dateOfExpiry}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{personalInfo.nationality}</div>
+<div>{sponsorInformation.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{personalInfo.maritalStatus}</div>
@@ -2716,7 +2716,7 @@ src={applicantpersonalimagePreview !== null
 <div>{dateOfExpiry}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{personalInfo.nationality}</div>
+<div>{sponsorInformation.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{personalInfo.maritalStatus}</div>
@@ -2953,7 +2953,7 @@ src={applicantpersonalimagePreview !== null
 <div>{dateOfExpiry}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{personalInfo.nationality}</div>
+<div>{sponsorInformation.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{personalInfo.maritalStatus}</div>
@@ -3191,7 +3191,7 @@ src={applicantpersonalimagePreview !== null
 <div>{dateOfExpiry}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{personalInfo.nationality}</div>
+<div>{sponsorInformation.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{personalInfo.maritalStatus}</div>

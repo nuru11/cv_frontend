@@ -1302,54 +1302,171 @@
 
 
 //////////////////
-import React from 'react';
+import React, { useRef } from 'react';
 import html2pdf from 'html2pdf.js';
 
-const PDFGenerator = () => {
-  const pdfRef = React.useRef();
+const TableToPdf = () => {
+    const pdfRef = useRef();
 
-  const generatePDF = () => {
-    const element = pdfRef.current;
-
-    const options = {
-      margin:       1,
-      filename:     'document.pdf',
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2 },
-      jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' },
-      // Using `onDocumentPrepared` to add page numbers after the document is created
-      onDocumentPrepared: (doc) => {
-        const totalPages = doc.internal.getNumberOfPages();
-        for (let i = 1; i <= totalPages; i++) {
-          doc.setPage(i);
-          const text = `Page ${i} of ${totalPages}`;
-          const width = doc.internal.pageSize.getWidth();
-          const height = doc.internal.pageSize.getHeight();
-          doc.text(text, width - 1, height - 0.5, { align: 'right' });
-        }
-      }
+    const generatePDF = () => {
+        const element = pdfRef.current;
+        html2pdf()
+            .from(element)
+            .save('table.pdf');
     };
 
-    // Generate the PDF
-    html2pdf().from(element).set(options).save();
-  };
-
-  return (
-    <div>
-      <div ref={pdfRef} style={{ padding: '20px' }}>
-        <h1>Your Content Here</h1>
-        
-        {/* Generate multiple paragraphs to ensure multiple pages */}
-        {Array.from({ length: 50 }, (_, index) => (
-          <p key={index}>
-            This is line {index + 1}. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        ))}
-      </div>
-      <button onClick={generatePDF}>Generate PDF</button>
-    </div>
-  );
+    return (
+        <div>
+            <div ref={pdfRef} style={{ padding: '20px' }}>
+                <style>
+                    {`
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            border: 1px solid #000;
+                            padding: 8px;
+                            text-align: left;
+                        }
+                        th {
+                            background-color: #f2f2f2;
+                        }
+                        @media (max-width: 600px) {
+                            table, th, td {
+                                display: block;
+                                width: 100%;
+                            }
+                        }
+                    `}
+                </style>
+                <h2>Table Example</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="3">Personal Information</th>
+                            <th colSpan="5">Previous Experience</th>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>john.doe@example.com</td>
+                            <td>Software Engineer</td>
+                            <td>Tech Corp</td>
+                            <td>New York</td>
+                            <td>2020-01-01</td>
+                            <td>2022-01-01</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>28</td>
+                            <td>jane.smith@example.com</td>
+                            <td>Data Analyst</td>
+                            <td>Data Inc</td>
+                            <td>San Francisco</td>
+                            <td>2019-05-01</td>
+                            <td>2021-05-01</td>
+                        </tr>
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>35</td>
+                            <td>michael.brown@example.com</td>
+                            <td>Project Manager</td>
+                            <td>Business Solutions</td>
+                            <td>Chicago</td>
+                            <td>2018-03-01</td>
+                            <td>2020-03-01</td>
+                        </tr>
+                        <tr>
+                            <td>Emily Davis</td>
+                            <td>26</td>
+                            <td>emily.davis@example.com</td>
+                            <td>UX Designer</td>
+                            <td>Design Studio</td>
+                            <td>Austin</td>
+                            <td>2021-06-01</td>
+                            <td>2023-06-01</td>
+                        </tr>
+                        <tr>
+                            <td>David Wilson</td>
+                            <td>29</td>
+                            <td>david.wilson@example.com</td>
+                            <td>Marketing Specialist</td>
+                            <td>Marketing Co</td>
+                            <td>Los Angeles</td>
+                            <td>2020-02-01</td>
+                            <td>2022-02-01</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Johnson</td>
+                            <td>32</td>
+                            <td>sarah.johnson@example.com</td>
+                            <td>Content Writer</td>
+                            <td>Writing Hub</td>
+                            <td>Miami</td>
+                            <td>2019-09-01</td>
+                            <td>2021-09-01</td>
+                        </tr>
+                        <tr>
+                            <td>Robert Martinez</td>
+                            <td>40</td>
+                            <td>robert.martinez@example.com</td>
+                            <td>System Administrator</td>
+                            <td>IT Services</td>
+                            <td>Seattle</td>
+                            <td>2017-12-01</td>
+                            <td>2020-12-01</td>
+                        </tr>
+                        <tr>
+                            <td>Alice Lee</td>
+                            <td>27</td>
+                            <td>alice.lee@example.com</td>
+                            <td>Network Engineer</td>
+                            <td>Network Solutions</td>
+                            <td>Boston</td>
+                            <td>2021-04-01</td>
+                            <td>2023-04-01</td>
+                        </tr>
+                        <tr>
+                            <td>Chris Evans</td>
+                            <td>31</td>
+                            <td>chris.evans@example.com</td>
+                            <td>Business Analyst</td>
+                            <td>Consulting Firm</td>
+                            <td>Denver</td>
+                            <td>2018-08-01</td>
+                            <td>2021-08-01</td>
+                        </tr>
+                        <tr>
+                            <td>Laura Wilson</td>
+                            <td>25</td>
+                            <td>laura.wilson@example.com</td>
+                            <td>Graphic Designer</td>
+                            <td>Creative Agency</td>
+                            <td>Portland</td>
+                            <td>2022-01-01</td>
+                            <td>2023-01-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button onClick={generatePDF} style={{ marginTop: '20px' }}>
+                Generate PDF
+            </button>
+        </div>
+    );
 };
 
-export default PDFGenerator;
+export default TableToPdf;

@@ -1330,7 +1330,7 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>{data.expireddate}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{data.nationality}</div>
+<div>{data.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{data.martialstatus}</div>
@@ -1396,8 +1396,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>EXPERIANCE COUNTRY</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div>
-<div>
-            </div>
+{/* <div>
+            </div> */}
 <div>خبرة البلد</div>
 </div>
 
@@ -1409,8 +1409,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>WORKING YEARS</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div>
-<div>
-              </div>
+{/* <div>
+              </div> */}
 <div>وعدد سنوات الخبرة</div>
 </div>
 
@@ -1569,7 +1569,7 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>{data.expireddate}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{data.nationality}</div>
+<div>{data.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{data.martialstatus}</div>
@@ -1635,8 +1635,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>EXPERIANCE COUNTRY</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div>
-<div>
-            </div>
+{/* <div>
+            </div> */}
 <div>خبرة البلد</div>
 </div>
 
@@ -1648,8 +1648,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>WORKING YEARS</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div>
-<div>
-              </div>
+{/* <div>
+              </div> */}
 <div>وعدد سنوات الخبرة</div>
 </div>
 
@@ -1807,7 +1807,7 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>{data.expireddate}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{data.nationality}</div>
+<div>{data.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{data.martialstatus}</div>
@@ -1873,8 +1873,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>EXPERIANCE COUNTRY</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div>
-<div>
-            </div>
+{/* <div>
+            </div> */}
 <div>خبرة البلد</div>
 </div>
 
@@ -1886,8 +1886,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>WORKING YEARS</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div>
-<div>
-              </div>
+{/* <div>
+              </div> */}
 <div>وعدد سنوات الخبرة</div>
 </div>
 
@@ -2046,7 +2046,7 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>{data.expireddate}</div>
 <div>تاريخ الانتهاء</div>
 <div>NATIONALITY</div>
-<div>{data.nationality}</div>
+<div>{data.currentNationality}</div>
 <div>الجنسية</div>
 <div style={{height: 35}}>MARITAL STATUS</div>
 <div style={{height: 35}}>{data.martialstatus}</div>
@@ -2112,8 +2112,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>EXPERIANCE COUNTRY</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )} </div>
-<div>
-            </div>
+{/* <div>
+            </div> */}
 <div>خبرة البلد</div>
 </div>
 
@@ -2125,8 +2125,8 @@ src={data.personalImageUrl || imagePlaceholder} // Get the last image
 <div>WORKING YEARS</div>
 {/* <div>{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div> */}
 <div>{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div>
-<div>
-              </div>
+{/* <div>
+              </div> */}
 <div>وعدد سنوات الخبرة</div>
 </div>
 
