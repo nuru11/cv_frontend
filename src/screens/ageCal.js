@@ -1331,48 +1331,138 @@ const TableToPdf = () => {
     return (
         <div>
             <div id="KaanAlRiyadhCv" style={{ display: '' }}>
+                {/* First Table */}
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr>
                             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>First Name</span>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأول</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>First Name</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>الاسم الأول</span>
                                 </div>
                             </th>
                             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>Middle Name</span>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأوسط</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Middle Name</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>الاسم الأوسط</span>
                                 </div>
                             </th>
                             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>Last Name</span>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>اسم العائلة</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Last Name</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>اسم العائلة</span>
                                 </div>
                             </th>
                             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>Surname</span>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>اللقب</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Surname</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>اللقب</span>
                                 </div>
                             </th>
                             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>CV Code</span>
-                                    <span style={{ fontSize: '10px', color: 'black' }}>رمز السيرة الذاتية</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>CV Code</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>رمز السيرة الذاتية</span>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>John</td>
-                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>A.</td>
-                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>Doe</td>
-                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>Smith</td>
-                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center' }}>CV001</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>John</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>A.</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>Doe</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>Smith</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>CV001</td>
+                        </tr>
+                        {/* Add more rows as needed */}
+                    </tbody>
+                </table>
+
+                {/* Second Table */}
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+                    <thead>
+                        <tr>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Position Applied</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>الوظيفة المتقدم لها</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Contract Period</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>مدة العقد</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Monthly Salary</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>الراتب الشهري</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>City</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>المدينة</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Address</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>العنوان</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>Software Engineer</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>12 months</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>5000 SAR</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>Riyadh</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>123 Main St.</td>
+                        </tr>
+                        {/* Add more rows as needed */}
+                    </tbody>
+                </table>
+
+                {/* Third Table - Passport Information */}
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+                    <thead>
+                        <tr>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Passport No</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>رقم الجواز</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Issued Date</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>تاريخ الإصدار</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Expired Date</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>تاريخ الانتهاء</span>
+                                </div>
+                            </th>
+                            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left' }}>
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>Issued Place</span>
+                                    <span style={{ fontSize: '12px', color: 'black' }}>مكان الإصدار</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>A123456789</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>2020-01-01</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>2030-01-01</td>
+                            <td style={{ border: '1px solid black', padding: '8px', textAlign: 'center', fontSize: '12px' }}>Riyadh</td>
                         </tr>
                         {/* Add more rows as needed */}
                     </tbody>
