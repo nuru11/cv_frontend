@@ -1305,6 +1305,10 @@
 import React from 'react';
 import html2pdf from 'html2pdf.js';
 
+import barakaimg from "../image_placeholder/barakaimg.jpeg"
+import { Height } from '@mui/icons-material';
+
+
 const TableToPdf = () => {
     const downloadMultipleCVs = async () => {
         const pdfElements = [
@@ -1467,6 +1471,141 @@ const TableToPdf = () => {
                         {/* Add more rows as needed */}
                     </tbody>
                 </table>
+
+                {/* Personal Information and Previous Experience Tables */}
+                <div style={{ display: 'flex', marginTop: '20px', background: "" }}>
+                    {/* Personal Information Table */}
+
+                    <div style={{ flex: '1', borderCollapse: 'collapse', marginRight: '10px' }}>
+                    
+                    <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+    <thead>
+        <tr>
+            <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '8px', color: 'white', textAlign: 'left', fontSize: '12px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span>Personal Information</span>
+                    <span>المعلومات الشخصية</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Nationality / الجنسية</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Religion / الدين</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Age / العمر</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Gender / الجنس</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Birthday / تاريخ الميلاد</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Birthplace / مكان الميلاد</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Marital Status / الحالة الاجتماعية</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Number of Children / عدد الأطفال</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Height / الطول</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Weight / الوزن</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Education / التعليم</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+                    {/* Previous Experience Table */}
+
+                    <div style={{ flex: '1', borderCollapse: 'collapse', marginLeft: '10px', display: "flex", flexDirection: "column", justifyContent: "center",  alignItems:"center" }}>
+                    <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+    <thead>
+        <tr>
+            <th colSpan="5" style={{ 
+                backgroundColor: '#D050C9', 
+                border: '1px solid black', 
+                padding: '8px', 
+                color: 'white', 
+                textAlign: 'left', 
+                fontSize: '12px' 
+            }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span>Previous Experience</span>
+                    <span>الخبرة السابقة</span>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Country</th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>Position</th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>No of Years</th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>From</th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px' }}>To</th>
+        </tr>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+        </tr>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+        </tr>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+            <th style={{ border: '1px solid black', padding: '8px', fontSize: '12px', fontWeight: "normal" }}></th>
+        </tr>
+    </thead>
+    <tbody>
+        {/* Add more rows as needed */}
+    </tbody>
+</table>
+
+
+{/* full body box */}
+<div style={{border: "10px solid green", borderRadius: "23px", marginTop: '20px',}}>
+
+    <div style={{background: "blue", maxWidth: "300px", minWidth: "300px", maxHeight: "520px", minHeight: "520px",  border: "10px solid red", borderRadius: "10px" }}>
+        <img src={barakaimg} style={{minHeight: "100%", maxHeight: "100%",  maxWidth: "100%", minWidth: "100%"}} alt="" />
+    </div>
+
+</div> 
+
+
+
+</div>
+                </div>
             </div>
             <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
                 Generate PDF
