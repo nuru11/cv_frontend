@@ -129,7 +129,7 @@ const handleToggleChange = (event) => {
     const [image, setImage] = useState(null);
     const [allImage, setAllImage] = useState(null);
     const [passportimage, setPassportimage] = useState(null)
-    const [passportallimage, setPassportallimage] = useState(null)
+    const [passportallimage, setPassportallimage] = useState(null) 
     const [applicantpassportimage, setApplicantPassportimage] = useState(null)
     const [applicantpassportallimage, setApplicantPassportallimage] = useState(null)
     const [fileName, setFileName] = useState("No file chosen fyet");
@@ -1528,16 +1528,16 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
 
         const pdfElements = [
             
-            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5 },
-            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 },
-            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5 },
-            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5 },
-            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2] },
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter"  },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
+            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
+            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
            // Add more elements as needed
        ];
    
-       const downloadPromises = pdfElements.map(({ elementId, filename, margin }) => {
+       const downloadPromises = pdfElements.map(({ elementId, filename, margin, format }) => {
            const element = document.getElementById(elementId);
            const options = {
                margin: margin,
@@ -1545,7 +1545,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
                 // jsPDF: { unit: 'in', format: [8.5, 10.99],  /*format: 'letter',*/ orientation: 'portrait' }
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: format, orientation: 'portrait' }
             };
             
     
@@ -1630,24 +1630,24 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         setShowModal(false);
         const pdfElements = [
             
-             {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5 },
-             { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 },
-             { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5 },
-             { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5 },
-             { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2] },
-            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
-            // Add more elements as needed
-        ];
-    
-        const downloadPromises = pdfElements.map(({ elementId, filename, margin }) => {
-            const element = document.getElementById(elementId);
-            const options = {
-                margin: margin,
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter"  },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
+            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
+            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
+           // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
+           // Add more elements as needed
+       ];
+   
+       const downloadPromises = pdfElements.map(({ elementId, filename, margin, format }) => {
+           const element = document.getElementById(elementId);
+           const options = {
+               margin: margin,
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
                 // jsPDF: { unit: 'in', format: [8.5, 10.99],  /*format: 'letter',*/ orientation: 'portrait' }
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: format, orientation: 'portrait' }
             };
     
             return html2pdf().from(element).set(options).save();
@@ -3425,8 +3425,8 @@ src={applicantpassportimagePreview !== null
 
         {/* kaan agent cv */}
 
-        <div>
-            <div id="KaanAlRiyadhCv" style={{ display: '' }}>
+        <div id="KaanAlRiyadhCv">
+            <div  style={{ pageBreakAfter: 'always' }}>
                 {/* First Table */}
                 <div style={{ background: "" }}>
     <img
@@ -3853,10 +3853,12 @@ src={applicantpassportimagePreview !== null
         overflow: 'hidden' // Ensure anything exceeding the bounds is hidden
     }}>
         <img 
-            src={fullbodyapplicantimage} 
+            src={applicantfullbodyimagePreview !== null
+                ? applicantfullbodyimagePreview
+                : imagePlaceholder} 
             style={{
                 height: "100%", 
-                width: "auto", 
+                width: "100%", 
                 display: 'block' // Prevents any extra space at the bottom
             }} 
             alt="" 
@@ -3944,6 +3946,23 @@ src={applicantpassportimagePreview !== null
 
 
             </div>
+
+            <div style={{display: "flex", justifyContent: "center", fontSize: 20, marginBottom: 30, marginTop: "30px"}}>Passport</div>
+
+<div className="passport-image-parent">
+
+<div>
+<img
+className="passport-image"
+alt=""
+src={applicantpassportimagePreview !== null
+? applicantpassportimagePreview
+: imagePlaceholder} 
+
+/>
+
+</div>
+</div>
           
         </div>
 

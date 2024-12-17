@@ -267,8 +267,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/signup',
-    // element: <ProtectedRoute element={<SignUp />} adminOnly={true} />, // Protect signup for admin only
-    element: <SignUp />,
+    element: <ProtectedRoute element={<SignUp />} adminOnly={true} />, // Protect signup for admin only
+    // element: <SignUp />,
     errorElement: <div>404 Not Found</div>
   },
   {

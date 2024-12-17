@@ -744,26 +744,26 @@ const downloadCV = () => {
 
 
         const pdfElements = [
-          { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${data.name} ${data.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 , format: "letter" },
-          {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleFour ? 'cvAssawsanahContent' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleThree ? 'cvBarakaContent' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleKaan ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadhCv.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
-          {elementId: styles.styleFive ? "embassy" : "", filename: "Embassycv.pdf", margin: 0.5, format: "letter"}
+          { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${data.name} ${data.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf` },
+          {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf' },
+          { elementId: styles.styleFour ? 'cvAssawsanahContent' : "", filename: 'Baraka.pdf' },
+          { elementId: styles.styleThree ? 'cvBarakaContent' : "", filename: 'Skyway.pdf' },
+          { elementId: styles.styleKaan ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadhCv.pdf' },
+          {elementId: styles.styleFive ? "embassy" : "", filename: "Embassycv.pdf"}
             
             
         ];
     
-        const downloadPromises = pdfElements.map(({ elementId, filename, margin, format }) => {
+        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
             const element = document.getElementById(elementId);
             const options = {
-                margin: margin,
+                margin: 0.5,
                 marginBottom: 0,
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true },
                 // jsPDF: { unit: 'in', format: [8.5, 10.99],  /*format: 'letter',*/ orientation: 'portrait' }
-                jsPDF: { unit: 'in', format: format, orientation: 'portrait' }
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
     
             return html2pdf().from(element).set(options).save();
@@ -2340,7 +2340,7 @@ src={data.passportImageUrl || imagePlaceholder}
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.contract}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.monthlysalarySaudi ? data.monthlysalarySaudi + " SAR" : ""}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.sponsorCity}</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.sponsorAddress}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.sponsorAdress}</td>
         </tr>
         {/* Add more rows as needed */}
     </tbody>
@@ -2760,7 +2760,7 @@ src={data.passportImageUrl || imagePlaceholder}
             </div>
 
 
-            <div style={{display: "flex", justifyContent: "center", fontSize: 20, marginBottom: 30, marginTop: "30px"}}>Passport</div>
+            <div style={{display: "flex", justifyContent: "center", fontSize: 20, marginBottom: 30}}>Passport</div>
 
                 <div className="passport-image-parent">
                 
