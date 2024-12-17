@@ -76,6 +76,13 @@ import { useDropzone } from 'react-dropzone';
 import Tesseract from 'tesseract.js';
 
 
+import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
+import phoneIcon from "../image_placeholder/phoneIcon.png"
+import EmailIcon from "../image_placeholder/emailIcon.png"
+import AddressIcon from "../image_placeholder/addressIcon.png"
+
+import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
+
 const Home = () => {
 
   const [toggleState, setToggleState] = useState(false);
@@ -115,7 +122,7 @@ const handleToggleChange = (event) => {
     //     project: [{ name: '', link: '', overview: '' }]
     //   };
     
-      const [projectInfo, setProjectInfo] = useState({project: [{ name: '', link: '', overview: '' }]});
+      const [projectInfo, setProjectInfo] = useState({project: [{ name: '', link: '', overview: '', from: "", to: "", cleaning: "", laundary: "", ironingclothes: "", babycare: "", childerncare: "", careoftheelderly: "",  cooking: "", arabicCooking: "", sewingClothes: "", homeNursing: "", childrens: "", drivingCars: "", manicuring: "", arabic: "", english: ""}]});
     const [skillInfo, setSkillInfo] = useState({ skills: [''] });
     const [referenceInfo, setReferenceInfo] = useState({ reference: [{ name: '', email: '', phone: '' }] });
     const [cvitem, setCvitem] = useState([]);
@@ -225,6 +232,9 @@ const [isInputFocused, setIsInputFocused] = useState(false);
     styleTwo: false,
     styleThree: false,
     styleFour: false,
+
+    kaanCvStyle: false,
+
     // styleFive: false,
     all: false,
   });
@@ -236,6 +246,11 @@ const [isInputFocused, setIsInputFocused] = useState(false);
     exp3: true,
     exp4: false,
     exp5: true,
+
+    childerncare: false,
+    ironingclothes: false,
+
+
     all: false,
   });
 
@@ -250,6 +265,9 @@ const [isInputFocused, setIsInputFocused] = useState(false);
         exp3: checked,
         exp4: checked,
         exp5: checked,
+
+        childerncare: checked,
+        ironingclothes: checked,
         all: checked,
       });
     } else {
@@ -452,6 +470,7 @@ useEffect(() => {
            styles.styleOne = false
             styles.styleTwo = false
             styles.styleFour = false
+            styles.kaanCvStyle = false
       
           } else {
             setErrorMessage(''); // Clear error message if age is valid
@@ -483,6 +502,7 @@ useEffect(() => {
             styleTwo: checked,
             styleThree: checked,
             styleFour: checked,
+            kaanCvStyle: checked,
             // styleFive: checked,
             all: checked,
           });
@@ -983,6 +1003,11 @@ formData.append("cleaning", expcheck.exp2 ? "true" : "false");
 formData.append("washing", expcheck.exp3 ? "true" : "false"); 
 formData.append("cooking", expcheck.exp4 ? "true" : "false");
 formData.append("eldercare", expcheck.exp5 ? "true" : "false");
+
+formData.append("childerncare", expcheck.childerncare ? "true" : "false");
+formData.append("ironingclothes", expcheck.ironingclothes ? "true" : "false");
+
+
 formData.append("monthlysalarySaudi", salaries.saudi );
 formData.append("monthlysalaryJordan", salaries.jordan );
 formData.append("experience", JSON.stringify(projectInfo.project))
@@ -1124,6 +1149,11 @@ formData.append("cleaning", expcheck.exp2 ? "true" : "false");
 formData.append("washing", expcheck.exp3 ? "true" : "false"); 
 formData.append("cooking", expcheck.exp4 ? "true" : "false");
 formData.append("eldercare", expcheck.exp5 ? "true" : "false");
+
+formData.append("childerncare", expcheck.childerncare ? "true" : "false");
+formData.append("ironingclothes", expcheck.ironingclothes ? "true" : "false");
+
+
 formData.append("monthlysalarySaudi", salaries.saudi );
 formData.append("monthlysalaryJordan", salaries.jordan );
 formData.append("experience", JSON.stringify(projectInfo.project))
@@ -1163,7 +1193,7 @@ try {
       }
   );
   // toast.success("Form submitted successfully!");
-  document.getElementById("nameInput").value = ""; // Reset the name input field
+  // document.getElementById("nameInput").value = ""; // Reset the name input field
 } catch (error) {
   console.error("Submission failed:", error);
   // toast.error("Submission failed. Please try again.");
@@ -1178,7 +1208,7 @@ try {
         // setApplicantfullbodyimageimagePreview(null)
         toast.success("Form submitted successfully!");
         setShowsubmitModal(false);
-        document.getElementById("nameInput").value = ""; // Reset the name input field
+        // document.getElementById("nameInput").value = ""; // Reset the name input field
     };
 
 
@@ -1437,7 +1467,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         };
 
         try {
-            const response = await fetch('http://localhost:4000/cv-builder-1', {
+            const response = await fetch('https://skywayapi.ntechagent.com/cv-builder-1', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1498,18 +1528,19 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
 
         const pdfElements = [
             
-             {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf' },
-             { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf` },
-            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf' },
-            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf' },
-            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
-            // Add more elements as needed
-        ];
-    
-        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
-            const element = document.getElementById(elementId);
-            const options = {
-                margin: 0.5,
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5 },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 },
+            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5 },
+            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5 },
+            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2] },
+           // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
+           // Add more elements as needed
+       ];
+   
+       const downloadPromises = pdfElements.map(({ elementId, filename, margin }) => {
+           const element = document.getElementById(elementId);
+           const options = {
+               margin: margin,
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
@@ -1599,18 +1630,19 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         setShowModal(false);
         const pdfElements = [
             
-             {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf' },
-             { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf` },
-            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf' },
-            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf' },
+             {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5 },
+             { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 },
+             { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5 },
+             { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5 },
+             { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2] },
             // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
             // Add more elements as needed
         ];
     
-        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
+        const downloadPromises = pdfElements.map(({ elementId, filename, margin }) => {
             const element = document.getElementById(elementId);
             const options = {
-                margin: 0.5,
+                margin: margin,
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
@@ -2096,6 +2128,8 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
 
         <div style={{ padding: '20px' }}>
       <button onClick={handlePaste}>Paste Data for Mosand</button>
+
+      {/* <div>{projectInfo.project[0].careoftheelderly} nnnn</div> */}
       
     </div>
     <NameArea callback={updateText} validationErrors={validationErrors} info={personalInfo} newField={addRecord} onInputFocus={() => setIsInputFocused(true)} 
@@ -2263,6 +2297,31 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                 }
                 label="ELDER CARE"
             />
+
+{/* <FormControlLabel
+                control={
+                    <Checkbox
+                        checked={expcheck.childerncare}
+                        onChange={handleExpChange}
+                        name="childerncare"
+                        // disabled={projectInfo.project[0].name === ""}
+                    />
+                }
+                label="Childern Care"
+            />
+
+
+<FormControlLabel
+                control={
+                    <Checkbox
+                        checked={expcheck.ironingclothes}
+                        onChange={handleExpChange}
+                        name="ironingclothes"
+                        // disabled={projectInfo.project[0].name === ""}
+                    />
+                }
+                label="Ironing Clothes"
+            /> */}
            
         </Box>
 
@@ -2358,6 +2417,19 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                     />
                 }
                 label="Baraka"
+            /> 
+
+
+<FormControlLabel
+                control={
+                    <Checkbox
+                        checked={styles.kaanCvStyle}
+                        onChange={handleStyleChange}
+                        name="kaanCvStyle"
+                        // disabled={personalInfo.age < 21}
+                    />
+                }
+                label="kaan"
             />
             {/* Uncomment if needed
             <FormControlLabel
@@ -3348,6 +3420,531 @@ src={applicantpassportimagePreview !== null
 </div>
 </div>
             </div>
+        </div>
+
+
+        {/* kaan agent cv */}
+
+        <div>
+            <div id="KaanAlRiyadhCv" style={{ display: '' }}>
+                {/* First Table */}
+                <div style={{ background: "" }}>
+    <img
+        src={KaanAlRiyadhHeaderImg}
+        alt="header"
+        style={{ maxWidth: '100%', height: 'auto' }} // Ensures the image is contained
+    />
+</div>
+
+
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+    <thead>
+        <tr>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>First Name</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأول</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Middle Name</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأوسط</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Last Name</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>اسم العائلة</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Surname</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>اللقب</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>CV Code</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>رمز السيرة الذاتية</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.name}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.middleName}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}></td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.surname}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
+        </tr>
+        {/* Add more rows as needed */}
+    </tbody>
+</table>
+
+                {/* Second Table */}
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+    <thead>
+        <tr>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Position Applied</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>الوظيفة المتقدم لها</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Contract Period</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>مدة العقد</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Monthly Salary</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>الراتب الشهري</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>City</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>المدينة</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Address</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>العنوان</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.postAppliedFor}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{sponsorInformation.contract}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{salaries.saudi ? salaries.saudi + " SAR" : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{sponsorInformation.sponsorCity}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{sponsorInformation.sponsorAdress}</td>
+        </tr>
+        {/* Add more rows as needed */}
+    </tbody>
+</table>
+
+                {/* Third Table - Passport Information */}
+                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+    <thead>
+        <tr>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Passport No</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>رقم الجواز</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Issued Date</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الإصدار</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Expired Date</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الانتهاء</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Issued Place</span>
+                    <span style={{ fontSize: '10px', color: 'black' }}>مكان الإصدار</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.passportNo}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{dateOfIssue}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{dateOfExpiry}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.passportIssuePlace}</td>
+        </tr>
+        {/* Add more rows as needed */}
+    </tbody>
+</table>
+
+                {/* Personal Information and Previous Experience Tables */}
+                <div style={{ display: 'flex', marginTop: '20px', background: "" }}>
+                    {/* Personal Information Table */}
+
+                    <div style={{ flex: '1', borderCollapse: 'collapse', marginRight: '10px' }}>
+                    
+                    <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+    <thead>
+        <tr>
+            <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'black', textAlign: 'left', fontSize: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span >Personal Information</span>
+                    <span >المعلومات الشخصية</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Nationality / الجنسية</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{sponsorInformation.currentNationality}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Religion / الدين</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.religion}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Age / العمر</td> 
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.age}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Gender / الجنس</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.sex}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthday / تاريخ الميلاد</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.dateOfBirth}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthplace / مكان الميلاد</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.placeOfBirth}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Marital Status / الحالة الاجتماعية</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.maritalStatus}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Number of Children / عدد الأطفال</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.numberOfChildren}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Height / الطول</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.height}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Weight / الوزن</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.weight}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Education / التعليم</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>{personalInfo.educationAttainment}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
+    <thead>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Training (التدريب)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Very Good (جيد جداً)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cleaning (تنظيف)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cleaning === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cleaning === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cleaning === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Laundry (غسيل)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].laundary === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].laundary === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].laundary === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Ironing Clothes (كي الملابس)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].ironingclothes === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].ironingclothes === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].ironingclothes === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Baby Care (رعاية الأطفال)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].babycare === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].babycare === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].babycare === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children Care (رعاية الأطفال)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childerncare === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childerncare === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childerncare === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Care of the Elderly (رعاية المسنين)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].careoftheelderly === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].careoftheelderly === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].careoftheelderly === "Good" ? "✔️"  : ""}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
+    <thead>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Skills (المهارات)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Poor (ضعيف)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cooking (طبخ)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cooking === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cooking === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].cooking === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic Cooking (الطبخ العربي)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabicCooking === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabicCooking === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabicCooking === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Sewing Clothes (خياطة الملابس)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].sewingClothes === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].sewingClothes === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].sewingClothes === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Home Nursing (تمريض منزلي)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].homeNursing === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].homeNursing === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].homeNursing === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children's Care (رعاية الأطفال)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childrens === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childrens === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].childrens === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Driving Cars (قيادة السيارات)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].drivingCars === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].drivingCars === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].drivingCars === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Manicure Massage (مانيكير مساج)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].manicuring === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].manicuring === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].manicuring === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic (العربية)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabic === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabic === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].arabic === "Good" ? "✔️"  : ""}</td>
+        </tr>
+        <tr>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>English (الإنجليزية)</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].english === "Excellent" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].english === "Very Good" ? "✔️"  : ""}</td>
+            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px', textAlign: 'center' }}>{projectInfo.project[0].english === "Good" ? "✔️"  : ""}</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+                    {/* Previous Experience Table */}
+
+                    <div style={{ flex: '1', borderCollapse: 'collapse', marginLeft: '10px', display: "flex", flexDirection: "column", justifyContent: "center",  alignItems:"center" }}>
+
+                        <>
+                        <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+    <thead>
+        <tr>
+            <th colSpan="5" style={{ 
+                backgroundColor: '#D050C9', 
+                border: '1px solid black', 
+                padding: '4px', 
+                color: 'white', 
+                textAlign: 'left', 
+                fontSize: '10px' 
+            }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', color: "black" }}>
+                    <span>Previous Experience</span>
+                    <span>الخبرة السابقة</span>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Country</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Position</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>No of Years</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>From</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>To</th>
+        </tr>
+        {/* <tr>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[0].name} ?? {projectInfo.project[0].name}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[0].link} ?? {projectInfo.project[0].link}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[0].overview} ?? {projectInfo.project[0].overview}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[0].from} ?? {projectInfo.project[0].from}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[0].to} ?? {projectInfo.project[0].to}</th>
+        </tr>
+        <tr>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[1].name} ?? {projectInfo.project[1].name}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[1].link} ?? {projectInfo.project[1].link}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[1].overview} ?? {projectInfo.project[1].overview}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[1].from} ?? {projectInfo.project[1].from}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[1].to} ?? {projectInfo.project[1].to}</th>
+        </tr> */}
+        {/* <tr>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[2].name} ?? {projectInfo.project[2].name}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[2].link} ?? {projectInfo.project[2].link}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[2].overview} ?? {projectInfo.project[2].overview}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[2].from} ?? {projectInfo.project[2].from}</th>
+            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>{projectInfo.project[2].to} ?? {projectInfo.project[2].to}</th>
+        </tr> */}
+
+{projectInfo.project.map((proj, index) => (
+    <tr key={index}>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>
+            {proj.name ?? 'N/A'}
+        </th>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>
+            {proj.link ?? 'N/A'}
+        </th>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>
+            {proj.overview ?? 'N/A'}
+        </th>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>
+            {proj.from ?? 'N/A'}
+        </th>
+        <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>
+            {proj.to ?? 'N/A'}
+        </th>
+    </tr>
+))}
+        
+    </thead>
+    <tbody>
+        {/* Add more rows as needed */}
+    </tbody>
+</table>
+
+
+</>
+
+
+{/* full body box */}
+<div style={{border: "10px solid green", borderRadius: "23px", marginTop: '20px', background: "red", height: '520px'}}>
+    <div style={{
+        background: "blue", 
+        maxWidth: "300px", 
+        minWidth: "300px", 
+        height: "100%", 
+        border: "10px solid red", 
+        borderRadius: "10px", 
+        overflow: 'hidden' // Ensure anything exceeding the bounds is hidden
+    }}>
+        <img 
+            src={fullbodyapplicantimage} 
+            style={{
+                height: "100%", 
+                width: "auto", 
+                display: 'block' // Prevents any extra space at the bottom
+            }} 
+            alt="" 
+        />
+    </div>
+</div>
+
+
+
+</div>
+                </div>
+
+
+                {/* footer */}
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
+                <div style={{display: "flex", justifyContent: "space-between", flexDirection: "row", background: "", width: "100%" }}>
+
+                    <div style={{display: "flex", flexDirection: "column",}}>
+                          
+                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+
+                          
+
+                          <div style={{background: ""}} >
+                          <img  src={phoneIcon} alt='' />
+                          </div>
+
+                          <div style={{marginLeft: "20px"}}>Phone</div>
+                        
+                        </div>
+
+                        <div>0582894204 & 0550507629&</div>
+
+                        <div>0550507629 & 0595855829</div>
+
+                    </div>
+
+                    <div style={{display: "flex", flexDirection: "column",}}>
+                          
+                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+
+                          
+
+                          <div style={{background: ""}} >
+                          <img  src={EmailIcon} alt='' />
+                          </div>
+
+                          <div style={{marginLeft: "20px"}}>Email</div>
+                        
+                        </div>
+
+                        <div>canoffice16@gmail.co</div>
+
+                        
+
+                    </div>
+
+                    <div style={{display: "flex", flexDirection: "column",}}>
+                          
+                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+
+                          
+
+                          <div style={{background: ""}} >
+                          <img  src={AddressIcon} alt='' />
+                          </div>
+
+                          <div style={{marginLeft: "20px"}}>Address</div>
+                        
+                        </div>
+
+                        <div>
+  Prince Saud bin Abdul Aziz Al Saud <br /> Al Kabeer – Riyadh KSA PO
+</div>
+                       
+
+                    </div>
+
+
+                    </div>
+
+
+                </div>
+                {/* footer end */}
+
+
+            </div>
+          
         </div>
 
 

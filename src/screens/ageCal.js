@@ -1311,6 +1311,8 @@ import EmailIcon from "../image_placeholder/emailIcon.png"
 import AddressIcon from "../image_placeholder/addressIcon.png"
 import { Height } from '@mui/icons-material';
 
+import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
+
 
 const TableToPdf = () => {
     const downloadMultipleCVs = async () => {
@@ -1322,7 +1324,8 @@ const TableToPdf = () => {
         const downloadPromises = pdfElements.map(({ elementId, filename }) => {
             const element = document.getElementById(elementId);
             const options = {
-                margin: 0.5,
+                margin: [0, 0.2, 0, 0.2],
+                marginTop: 0,
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
@@ -1339,6 +1342,15 @@ const TableToPdf = () => {
         <div>
             <div id="KaanAlRiyadhCv" style={{ display: '' }}>
                 {/* First Table */}
+                <div style={{ background: "" }}>
+    <img
+        src={KaanAlRiyadhHeaderImg}
+        alt="header"
+        style={{ maxWidth: '100%', height: 'auto' }} // Ensures the image is contained
+    />
+</div>
+
+
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
     <thead>
         <tr>
@@ -1484,10 +1496,10 @@ const TableToPdf = () => {
                     <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
     <thead>
         <tr>
-            <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left', fontSize: '10px' }}>
+            <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'black', textAlign: 'left', fontSize: '10px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span>Personal Information</span>
-                    <span>المعلومات الشخصية</span>
+                    <span >Personal Information</span>
+                    <span >المعلومات الشخصية</span>
                 </div>
             </th>
         </tr>
@@ -1678,7 +1690,7 @@ const TableToPdf = () => {
                 textAlign: 'left', 
                 fontSize: '10px' 
             }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', color: "black" }}>
                     <span>Previous Experience</span>
                     <span>الخبرة السابقة</span>
                 </div>
@@ -1752,7 +1764,7 @@ const TableToPdf = () => {
 
 
                 {/* footer */}
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
                 <div style={{display: "flex", justifyContent: "space-between", flexDirection: "row", background: "", width: "100%" }}>
 
                     <div style={{display: "flex", flexDirection: "column",}}>
@@ -1809,9 +1821,9 @@ const TableToPdf = () => {
                         
                         </div>
 
-                        {/* <div>Prince Saud bin Abdul Aziz Al Saud Al Kabeer – RiyadhKSA PO 
-                        </div> */}
-
+                        <div>
+  Prince Saud bin Abdul Aziz Al Saud <br /> Al Kabeer – Riyadh KSA PO
+</div>
                        
 
                     </div>
