@@ -112,7 +112,7 @@ const handleToggleChange = (event) => {
         birthDate: ''
       });
 
-      const initialPersonalInfo = {emptyfield: true, name: '', middleName: "", email: '', phone: '', about: '', surname: "", placeOfBirth: "", passportNo: "",passportIssuePlace: "", nationality: "ETHIOPIA", maritalStatus: "", numberOfChildren: "", religion: "", weight: "", height: "", educationAttainment: "", postAppliedFor: "", contractPeriod: "2", arabicDegree: "", englishDegree: "", ownPhoneNumber: "", contactPhoneNumber: "", monthlysalarySaudi: "", monthlysalaryJordan: "", idno: "", sex: "", visaNo: "", passportType: "", placeOfIssue: "", emptyfield: false, dateOfBirth: "", age:"", country: "", position: "", period: "", applicationNo: ""}
+      const initialPersonalInfo = {emptyfield: true, name: '', middleName: "", familyName: "", email: '', phone: '', about: '', surname: "", placeOfBirth: "", passportNo: "",passportIssuePlace: "", nationality: "ETHIOPIA", maritalStatus: "", numberOfChildren: "", religion: "", weight: "", height: "", educationAttainment: "", postAppliedFor: "", contractPeriod: "2", arabicDegree: "", englishDegree: "", ownPhoneNumber: "", contactPhoneNumber: "", monthlysalarySaudi: "", monthlysalaryJordan: "", idno: "", sex: "", visaNo: "", passportType: "", placeOfIssue: "", emptyfield: false, dateOfBirth: "", age:"", country: "", position: "", period: "", applicationNo: ""}
       const initialSponsorInfo = {visaNo: "", sponsorId: "", sponsorAdress: "", sponsorCity: "", nationalId: "", email: "", sponsorName: "", sponsorPhone: "", agent: "", sponsorArabic: '', visaType: "", fileNo: "", wakala: "", signedUp: "", biometricId: "", contract: "2", stickerVisa: "", currentNationality: "Ethiopia", laborId: "", sponsorInformationEmptyfield: false}
     const [personalInfo, setPersonalInfo] = useState(initialPersonalInfo);
     const [sponsorInformation, setSponsorInfo] = useState(initialSponsorInfo);
@@ -972,6 +972,7 @@ useEffect(() => {
         if (imageforpassportimage) formData.append("passportimage", imageforpassportimage);
 formData.append("name", personalInfo.name);
 formData.append("middleName", personalInfo.middleName);  
+formData.append("familyName", personalInfo.familyName);
 formData.append("surname", personalInfo.surname);
 formData.append("applicationNo", personalInfo.applicationNo);
 formData.append("sex", personalInfo.sex);
@@ -1118,6 +1119,8 @@ try {
         if (imageforpassportimage) formData.append("passportimage", imageforpassportimage);
 formData.append("name", personalInfo.name);
 formData.append("middleName", personalInfo.middleName);
+formData.append("familyName", personalInfo.familyName);
+
 formData.append("surname", personalInfo.surname);
 formData.append("applicationNo", personalInfo.applicationNo);
 formData.append("sex", personalInfo.sex);
@@ -3476,7 +3479,7 @@ src={applicantpassportimagePreview !== null
         <tr>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.name}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.middleName}</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}></td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.familyName}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.surname}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
         </tr>

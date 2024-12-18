@@ -2290,7 +2290,7 @@ src={data.passportImageUrl || imagePlaceholder}
         <tr>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.name}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.middleName}</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}></td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.familyName}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{data.surname}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
         </tr>

@@ -52,6 +52,12 @@ class NameArea extends Component {
                             <Inputs className="input-spacing" placeholder='Middle Name' TextVal={this.props.info.middleName} callback={this.props.callback} onFocus={onInputFocus} onBlur={onInputBlur} idVal={'personalInfo-middleName-input'} />
                             { this.props.info.middleName === "" && this.props.info.emptyfield === true ? <div style={{color: "red"}}>this field is required</div> : ""}
                         </div>
+
+                        <div className="input-container">
+                        <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Family Name</span>*</span>
+                            <Inputs className="input-spacing" placeholder='Family Name' TextVal={this.props.info.familyName} callback={this.props.callback} onFocus={onInputFocus} onBlur={onInputBlur} idVal={'personalInfo-familyName-input'} />
+                            { this.props.info.familyName === "" && this.props.info.emptyfield === true ? <div style={{color: "red"}}>this field is required</div> : ""}
+                        </div>
                         
                         <div className="input-container">
                         <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Surname</span>*</span>
