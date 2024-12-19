@@ -248,6 +248,7 @@ const router = createBrowserRouter([
   {
     path: '/age',
     element: <ProtectedRoute element={<AgeCal />} />,
+    // element: <AgeCal />,
     errorElement: <div>404 Not Found</div>
   },
   {

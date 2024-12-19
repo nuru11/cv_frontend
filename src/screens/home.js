@@ -432,10 +432,36 @@ useEffect(() => {
         getImage();
         fetchData();
         applicantgetImage();
+        fetchCount();
       }, []);
 
 
+ const [count, setCount] = useState(0);
 
+  const fetchCount = async () => {
+    try {
+      const response = await fetch('https://skywayapi.ntechagent.com/api/count');
+      if (!response.ok) {
+        throw new Error('Failed to fetch count');
+      }
+      const data = await response.json();
+      setCount(data.cv_count); // Set the count from the response
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Failed to fetch count. Please try again.');
+    }
+  };
+
+
+
+  const formatCount = (number) => {
+    if (number < 10) {
+      return `00${number}`; // Add "00" for single digits
+    } else if (number < 100) {
+      return `0${number}`; // Add "0" for two digits
+    }
+    return number.toString(); // Leave as is for three or more digits
+  };
 
 
       const calculatePersonalInfoAge = (dob) => {
@@ -818,15 +844,17 @@ useEffect(() => {
                   newPersonalInfo.idno = lines[lines.indexOf("ID Number") + 1] 
                 }
 
-                if (line.includes("ID Number")) {
-                  sponsorInformation.sponsorId = lines[lines.indexOf("ID Number") + 1] 
-                }
+                // if (line.includes("ID Number")) {
+                //   sponsorInformation.sponsorId = lines[lines.indexOf("ID Number") + 1] 
+                // }
 
                 if (line.includes("Date of Birth")) {
                  setDob(lines[lines.indexOf("Date of Birth") + 1])
                  newPersonalInfo.dateOfBirth = lines[lines.indexOf("Date of Birth") + 1]
                  
                 }
+
+                sponsorInformation.visaType = "Work"
           });
     
           // Update the state with the new values
@@ -922,6 +950,11 @@ useEffect(() => {
 
       const [isSubmitting, setIsSubmitting] = useState(false); // Use state to track submission status
 
+
+      const [message, setMessage] = useState('');
+            const [error, setError] = useState('');
+          
+
       const submitImageforapplicant = async (e) => {
           e.preventDefault();
           
@@ -956,6 +989,32 @@ useEffect(() => {
               setIsSubmitting(false); // Reset flag before exiting
               return;
           }
+
+
+          
+           
+              const dummyData = { newValue: count + 1 }; // Ensure this is an integer
+          
+              try {
+                const response = await fetch('https://skywayapi.ntechagent.com/api/count', {
+                  method: 'PUT', // Assuming you want to update the count
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(dummyData),
+                });
+          
+                if (!response.ok) {
+                  throw new Error('Failed to post dummy data');
+                }
+          
+                const result = await response.text(); // Adjust if your API returns JSON
+                setMessage(`Successfully posted: ${result}`);
+              } catch (error) {
+                console.error('Error:', error);
+                setError('Failed to post dummy data. Please try again.');
+              }
+            
 
           
     
@@ -1037,6 +1096,12 @@ formData.append("currentNationality", sponsorInformation.currentNationality);
 formData.append("laborId", sponsorInformation.laborId);
 
 
+// formData.append("cvcount", JSON.stringify(dummyData.newValue));
+formData.append("cvcount", formatCount(count + 1));
+
+
+
+
 
 try {
   const result = await axios.post(
@@ -1048,11 +1113,13 @@ try {
   );
   // toast.success("Form submitted successfully!");
   document.getElementById("nameInput").value = ""; // Reset the name input field
+  fetchCount();
 } catch (error) {
   console.error("Submission failed:", error);
   // toast.error("Submission failed. Please try again.");
 } finally {
   await fetchDataa();
+  fetchCount();
   setIsSubmitting(false); // Reset the flag after the operation is completed
 }
         
@@ -1090,6 +1157,29 @@ try {
           alert(`This applicant already exists.`); // Notify user
           setIsSubmitting(false); // Reset flag before exiting
           return; // Stop function if name is not unique
+      }
+
+
+      const dummyData = { newValue: count + 1 }; // Ensure this is an integer
+          
+      try {
+        const response = await fetch('https://skywayapi.ntechagent.com/api/count', {
+          method: 'PUT', // Assuming you want to update the count
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dummyData),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to post dummy data');
+        }
+  
+        const result = await response.text(); // Adjust if your API returns JSON
+        setMessage(`Successfully posted: ${result}`);
+      } catch (error) {
+        console.error('Error:', error);
+        setError('Failed to post dummy data. Please try again.');
       }
   
       // if (!name || !placeOfBirth || !nationality || !maritalStatus || !religion || !applicantpersonalimagePreview || !applicantfullbodyimagePreview || !applicantpassportimagePreview) {
@@ -1185,6 +1275,10 @@ formData.append("currentNationality", sponsorInformation.currentNationality);
 formData.append("laborId", sponsorInformation.laborId);
 
 
+// formData.append("cvcount", JSON.stringify(dummyData.newValue));
+formData.append("cvcount", formatCount(count + 1));
+
+
 
 
 try {
@@ -1197,12 +1291,14 @@ try {
   );
   // toast.success("Form submitted successfully!");
   // document.getElementById("nameInput").value = ""; // Reset the name input field
+  fetchCount();
 } catch (error) {
   console.error("Submission failed:", error);
   // toast.error("Submission failed. Please try again.");
 } finally {
   await fetchDataa();
   setIsSubmitting(false); // Reset the flag after the operation is completed
+  fetchCount();
 }
         
         
@@ -1529,6 +1625,29 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
       }
 
 
+      const dummyData = { newValue: count + 1 }; // Ensure this is an integer
+          
+      try {
+        const response = await fetch('https://skywayapi.ntechagent.com/api/count', {
+          method: 'PUT', // Assuming you want to update the count
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dummyData),
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to post dummy data');
+        }
+  
+        const result = await response.text(); // Adjust if your API returns JSON
+        setMessage(`Successfully posted: ${result}`);
+      } catch (error) {
+        console.error('Error:', error);
+        setError('Failed to post dummy data. Please try again.');
+      }
+
+
         const pdfElements = [
             
             {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter"  },
@@ -1557,6 +1676,8 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
     
         // Wait for all downloads to complete
         await Promise.all(downloadPromises);
+
+        fetchCount();
     }
 
 
@@ -1641,6 +1762,29 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
            // Add more elements as needed
        ];
+
+
+       const dummyData = { newValue: count + 1 }; // Ensure this is an integer
+          
+       try {
+         const response = await fetch('https://skywayapi.ntechagent.com/api/count', {
+           method: 'PUT', // Assuming you want to update the count
+           headers: {
+             'Content-Type': 'application/json',
+           },
+           body: JSON.stringify(dummyData),
+         });
+   
+         if (!response.ok) {
+           throw new Error('Failed to post dummy data');
+         }
+   
+         const result = await response.text(); // Adjust if your API returns JSON
+         setMessage(`Successfully posted: ${result}`);
+       } catch (error) {
+         console.error('Error:', error);
+         setError('Failed to post dummy data. Please try again.');
+       }
    
        const downloadPromises = pdfElements.map(({ elementId, filename, margin, format }) => {
            const element = document.getElementById(elementId);
@@ -1658,6 +1802,8 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
     
         // Wait for all downloads to complete
         await Promise.all(downloadPromises);
+
+        fetchCount();
         
     }
 
@@ -2311,7 +2457,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                     />
                 }
                 label="Childern Care"
-            />
+            />*/}
 
 
 <FormControlLabel
@@ -2324,7 +2470,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                     />
                 }
                 label="Ironing Clothes"
-            /> */}
+            /> 
            
         </Box>
 
@@ -2525,7 +2671,7 @@ src={applicantpersonalimagePreview !== null
                     <div className="title-parent">
                         <div style={{display: "flex", justifyContent: "space-around", border: "none"}}><div style={{ border: "none"}}>Personal Information</div>  <div style={{ border: "none"}}> ممعلومات شخصية </div></div>
                         <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>CODE NO</div>
-                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J100</div>
+                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J{formatCount(count)}</div>
                     </div>
                     <div className="table-main-parent">
                     <div class="table-parent">
@@ -2762,7 +2908,7 @@ src={applicantpersonalimagePreview !== null
                     <div className="title-parent">
                         <div style={{display: "flex", justifyContent: "space-around", border: "none"}}><div style={{ border: "none"}}>Personal Information</div>  <div style={{ border: "none"}}> ممعلومات شخصية </div></div>
                         <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>CODE NO</div>
-                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J100</div>
+                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J{formatCount(count)}</div>
                     </div>
                     <div className="table-main-parent">
                     <div class="table-parent">
@@ -2999,7 +3145,7 @@ src={applicantpersonalimagePreview !== null
                     <div className="title-parent">
                         <div style={{display: "flex", justifyContent: "space-around", border: "none"}}><div style={{ border: "none"}}>Personal Information</div>  <div style={{ border: "none"}}> ممعلومات شخصية </div></div>
                         <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>CODE NO</div>
-                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J100</div>
+                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J{formatCount(count)}</div>
                     </div>
                     <div className="table-main-parent">
                     <div class="table-parent">
@@ -3237,7 +3383,7 @@ src={applicantpersonalimagePreview !== null
                     <div className="title-parent">
                         <div style={{display: "flex", justifyContent: "space-around", border: "none"}}><div style={{ border: "none"}}>Personal Information</div>  <div style={{ border: "none"}}> ممعلومات شخصية </div></div>
                         <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>CODE NO</div>
-                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J100</div>
+                        <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>J{formatCount(count)}</div>
                     </div>
                     <div className="table-main-parent">
                     <div class="table-parent">
@@ -3481,7 +3627,7 @@ src={applicantpassportimagePreview !== null
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.middleName}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.familyName}</td>
             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{personalInfo.surname}</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV{formatCount(count)}</td>
         </tr>
         {/* Add more rows as needed */}
     </tbody>

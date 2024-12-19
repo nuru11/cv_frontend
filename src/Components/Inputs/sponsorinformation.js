@@ -118,6 +118,9 @@ class SponsorInformation extends Component {
         <option value="belahodod">Bela Hodod</option>
         <option value="assawsanah">Assawsanah</option>
         <option value="baraka">Baraka</option>
+        <option value="Kanagent">Kan Alriyadh</option>
+        <option value="qimamasia">Qimam Asia</option>
+        
     </select>
 </div>
                             

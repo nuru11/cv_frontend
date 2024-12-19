@@ -1302,546 +1302,646 @@
 
 
 //////////////////
-import React from 'react';
-import html2pdf from 'html2pdf.js';
-
-import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
-import phoneIcon from "../image_placeholder/phoneIcon.png"
-import EmailIcon from "../image_placeholder/emailIcon.png"
-import AddressIcon from "../image_placeholder/addressIcon.png"
-import { Height } from '@mui/icons-material';
-
-import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
 
 
-const TableToPdf = () => {
-    const downloadMultipleCVs = async () => {
-        const pdfElements = [
-            { elementId: 'KaanAlRiyadhCv', filename: 'KaanAlRiyadh.pdf' },
-            // Add more elements as needed
-        ];
-
-        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
-            const element = document.getElementById(elementId);
-            const options = {
-                margin: [0, 0.2, 0, 0.2],
-                marginTop: 0,
-                filename: filename,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-            };
-
-            return html2pdf().from(element).set(options).save();
-        });
-
-        await Promise.all(downloadPromises);
-    };
-
-    return (
-        <div>
-            <div id="KaanAlRiyadhCv" style={{ display: '' }}>
-                {/* First Table */}
-                <div style={{ background: "" }}>
-    <img
-        src={KaanAlRiyadhHeaderImg}
-        alt="header"
-        style={{ maxWidth: '100%', height: 'auto' }} // Ensures the image is contained
-    />
-</div>
 
 
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-    <thead>
-        <tr>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>First Name</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأول</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Middle Name</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأوسط</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Last Name</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>اسم العائلة</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Surname</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>اللقب</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>CV Code</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>رمز السيرة الذاتية</span>
-                </div>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>John</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>A.</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Doe</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Smith</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
-        </tr>
-        {/* Add more rows as needed */}
-    </tbody>
-</table>
 
-                {/* Second Table */}
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-    <thead>
-        <tr>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Position Applied</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>الوظيفة المتقدم لها</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Contract Period</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>مدة العقد</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Monthly Salary</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>الراتب الشهري</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>City</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>المدينة</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Address</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>العنوان</span>
-                </div>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Software Engineer</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>12 months</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>5000 SAR</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Riyadh</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>123 Main St.</td>
-        </tr>
-        {/* Add more rows as needed */}
-    </tbody>
-</table>
+// import React from 'react';
+// import html2pdf from 'html2pdf.js';
 
-                {/* Third Table - Passport Information */}
-                <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-    <thead>
-        <tr>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Passport No</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>رقم الجواز</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Issued Date</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الإصدار</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Expired Date</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الانتهاء</span>
-                </div>
-            </th>
-            <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span style={{ fontSize: '10px', color: 'black' }}>Issued Place</span>
-                    <span style={{ fontSize: '10px', color: 'black' }}>مكان الإصدار</span>
-                </div>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>A123456789</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>2020-01-01</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>2030-01-01</td>
-            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Riyadh</td>
-        </tr>
-        {/* Add more rows as needed */}
-    </tbody>
-</table>
+// import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
+// import phoneIcon from "../image_placeholder/phoneIcon.png"
+// import EmailIcon from "../image_placeholder/emailIcon.png"
+// import AddressIcon from "../image_placeholder/addressIcon.png"
+// import { Height } from '@mui/icons-material';
 
-                {/* Personal Information and Previous Experience Tables */}
-                <div style={{ display: 'flex', marginTop: '20px', background: "" }}>
-                    {/* Personal Information Table */}
+// import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
 
-                    <div style={{ flex: '1', borderCollapse: 'collapse', marginRight: '10px' }}>
+
+// const TableToPdf = () => {
+//     const downloadMultipleCVs = async () => {
+//         const pdfElements = [
+//             { elementId: 'KaanAlRiyadhCv', filename: 'KaanAlRiyadh.pdf' },
+//             // Add more elements as needed
+//         ];
+
+//         const downloadPromises = pdfElements.map(({ elementId, filename }) => {
+//             const element = document.getElementById(elementId);
+//             const options = {
+//                 margin: [0, 0.2, 0, 0.2],
+//                 marginTop: 0,
+//                 filename: filename,
+//                 image: { type: 'jpeg', quality: 0.98 },
+//                 html2canvas: { scale: 2 },
+//                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+//             };
+
+//             return html2pdf().from(element).set(options).save();
+//         });
+
+//         await Promise.all(downloadPromises);
+//     };
+
+//     return (
+//         <div>
+//             <div id="KaanAlRiyadhCv" style={{ display: '' }}>
+//                 {/* First Table */}
+//                 <div style={{ background: "" }}>
+//     <img
+//         src={KaanAlRiyadhHeaderImg}
+//         alt="header"
+//         style={{ maxWidth: '100%', height: 'auto' }} // Ensures the image is contained
+//     />
+// </div>
+
+
+//                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+//     <thead>
+//         <tr>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>First Name</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأول</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Middle Name</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>الاسم الأوسط</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Last Name</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>اسم العائلة</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Surname</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>اللقب</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>CV Code</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>رمز السيرة الذاتية</span>
+//                 </div>
+//             </th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>John</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>A.</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Doe</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Smith</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV001</td>
+//         </tr>
+//         {/* Add more rows as needed */}
+//     </tbody>
+// </table>
+
+//                 {/* Second Table */}
+//                 <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+//     <thead>
+//         <tr>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Position Applied</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>الوظيفة المتقدم لها</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Contract Period</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>مدة العقد</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Monthly Salary</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>الراتب الشهري</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>City</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>المدينة</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Address</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>العنوان</span>
+//                 </div>
+//             </th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Software Engineer</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>12 months</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>5000 SAR</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Riyadh</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>123 Main St.</td>
+//         </tr>
+//         {/* Add more rows as needed */}
+//     </tbody>
+// </table>
+
+//                 {/* Third Table - Passport Information */}
+//                 <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
+//     <thead>
+//         <tr>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Passport No</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>رقم الجواز</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Issued Date</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الإصدار</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Expired Date</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>تاريخ الانتهاء</span>
+//                 </div>
+//             </th>
+//             <th style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>Issued Place</span>
+//                     <span style={{ fontSize: '10px', color: 'black' }}>مكان الإصدار</span>
+//                 </div>
+//             </th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>A123456789</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>2020-01-01</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>2030-01-01</td>
+//             <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>Riyadh</td>
+//         </tr>
+//         {/* Add more rows as needed */}
+//     </tbody>
+// </table>
+
+//                 {/* Personal Information and Previous Experience Tables */}
+//                 <div style={{ display: 'flex', marginTop: '20px', background: "" }}>
+//                     {/* Personal Information Table */}
+
+//                     <div style={{ flex: '1', borderCollapse: 'collapse', marginRight: '10px' }}>
                     
-                    <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
-    <thead>
-        <tr>
-            <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'black', textAlign: 'left', fontSize: '10px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-                    <span >Personal Information</span>
-                    <span >المعلومات الشخصية</span>
-                </div>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Nationality / الجنسية</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Religion / الدين</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Age / العمر</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Gender / الجنس</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthday / تاريخ الميلاد</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthplace / مكان الميلاد</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Marital Status / الحالة الاجتماعية</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Number of Children / عدد الأطفال</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Height / الطول</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Weight / الوزن</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Education / التعليم</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>kkkk</td>
-        </tr>
-    </tbody>
-</table>
+//                     <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+//     <thead>
+//         <tr>
+//             <th colSpan="2" style={{ backgroundColor: '#D050C9', border: '1px solid black', padding: '4px', color: 'black', textAlign: 'left', fontSize: '10px' }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+//                     <span >Personal Information</span>
+//                     <span >المعلومات الشخصية</span>
+//                 </div>
+//             </th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Nationality / الجنسية</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Religion / الدين</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Age / العمر</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Gender / الجنس</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthday / تاريخ الميلاد</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Birthplace / مكان الميلاد</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Marital Status / الحالة الاجتماعية</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Number of Children / عدد الأطفال</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Height / الطول</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Weight / الوزن</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Education / التعليم</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>kkkk</td>
+//         </tr>
+//     </tbody>
+// </table>
 
 
 
 
-<table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
-    <thead>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Training (التدريب)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Very Good (جيد جداً)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cleaning (تنظيف)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Laundry (غسيل)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Ironing Clothes (كي الملابس)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Baby Care (رعاية الأطفال)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children Care (رعاية الأطفال)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Care of the Elderly (رعاية المسنين)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-    </tbody>
-</table>
+// <table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
+//     <thead>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Training (التدريب)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Very Good (جيد جداً)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cleaning (تنظيف)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Laundry (غسيل)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Ironing Clothes (كي الملابس)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Baby Care (رعاية الأطفال)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children Care (رعاية الأطفال)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Care of the Elderly (رعاية المسنين)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//     </tbody>
+// </table>
 
 
-<table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
-    <thead>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Skills (المهارات)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Poor (ضعيف)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cooking (طبخ)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic Cooking (الطبخ العربي)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Sewing Clothes (خياطة الملابس)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Home Nursing (تمريض منزلي)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children's Care (رعاية الأطفال)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Driving Cars (قيادة السيارات)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Manicure Massage (مانيكير مساج)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic (العربية)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-        <tr>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>English (الإنجليزية)</td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-            <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
-        </tr>
-    </tbody>
-</table>
+// <table style={{ borderCollapse: 'collapse', minWidth: '100%', marginTop: '20px' }}>
+//     <thead>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', width: '50%', backgroundColor: '#D050C9' }}>Skills (المهارات)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Excellent (ممتاز)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Good (جيد)</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', backgroundColor: '#D050C9' }}>Poor (ضعيف)</th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Cooking (طبخ)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic Cooking (الطبخ العربي)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Sewing Clothes (خياطة الملابس)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Home Nursing (تمريض منزلي)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Children's Care (رعاية الأطفال)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Driving Cars (قيادة السيارات)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Manicure Massage (مانيكير مساج)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Arabic (العربية)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//         <tr>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>English (الإنجليزية)</td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//             <td style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}></td>
+//         </tr>
+//     </tbody>
+// </table>
 
-</div>
+// </div>
 
-                    {/* Previous Experience Table */}
+//                     {/* Previous Experience Table */}
 
-                    <div style={{ flex: '1', borderCollapse: 'collapse', marginLeft: '10px', display: "flex", flexDirection: "column", justifyContent: "center",  alignItems:"center" }}>
+//                     <div style={{ flex: '1', borderCollapse: 'collapse', marginLeft: '10px', display: "flex", flexDirection: "column", justifyContent: "center",  alignItems:"center" }}>
 
-                        <>
-                        <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
-    <thead>
-        <tr>
-            <th colSpan="5" style={{ 
-                backgroundColor: '#D050C9', 
-                border: '1px solid black', 
-                padding: '4px', 
-                color: 'white', 
-                textAlign: 'left', 
-                fontSize: '10px' 
-            }}>
-                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', color: "black" }}>
-                    <span>Previous Experience</span>
-                    <span>الخبرة السابقة</span>
-                </div>
-            </th>
-        </tr>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Country</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Position</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>No of Years</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>From</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>To</th>
-        </tr>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>gggg</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>kkk</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-        </tr>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>jjj</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-        </tr>
-        <tr>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>jjj</th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-            <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
-        </tr>
-    </thead>
-    <tbody>
-        {/* Add more rows as needed */}
-    </tbody>
-</table>
-
-
-</>
+//                         <>
+//                         <table style={{ borderCollapse: 'collapse', minWidth: "100%" }}>
+//     <thead>
+//         <tr>
+//             <th colSpan="5" style={{ 
+//                 backgroundColor: '#D050C9', 
+//                 border: '1px solid black', 
+//                 padding: '4px', 
+//                 color: 'white', 
+//                 textAlign: 'left', 
+//                 fontSize: '10px' 
+//             }}>
+//                 <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', color: "black" }}>
+//                     <span>Previous Experience</span>
+//                     <span>الخبرة السابقة</span>
+//                 </div>
+//             </th>
+//         </tr>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Country</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>Position</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>No of Years</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>From</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px' }}>To</th>
+//         </tr>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>gggg</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>kkk</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//         </tr>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>jjj</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//         </tr>
+//         <tr>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}>jjj</th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//             <th style={{ border: '1px solid black', padding: '4px', fontSize: '10px', fontWeight: "normal" }}></th>
+//         </tr>
+//     </thead>
+//     <tbody>
+//         {/* Add more rows as needed */}
+//     </tbody>
+// </table>
 
 
-{/* full body box */}
-<div style={{border: "10px solid green", borderRadius: "23px", marginTop: '20px', background: "red", height: '520px'}}>
-    <div style={{
-        background: "blue", 
-        maxWidth: "300px", 
-        minWidth: "300px", 
-        height: "100%", 
-        border: "10px solid red", 
-        borderRadius: "10px", 
-        overflow: 'hidden' // Ensure anything exceeding the bounds is hidden
-    }}>
-        <img 
-            src={fullbodyapplicantimage} 
-            style={{
-                height: "100%", 
-                width: "auto", 
-                display: 'block' // Prevents any extra space at the bottom
-            }} 
-            alt="" 
-        />
-    </div>
-</div>
+// </>
+
+
+// {/* full body box */}
+// <div style={{border: "10px solid green", borderRadius: "23px", marginTop: '20px', background: "red", height: '520px'}}>
+//     <div style={{
+//         background: "blue", 
+//         maxWidth: "300px", 
+//         minWidth: "300px", 
+//         height: "100%", 
+//         border: "10px solid red", 
+//         borderRadius: "10px", 
+//         overflow: 'hidden' // Ensure anything exceeding the bounds is hidden
+//     }}>
+//         <img 
+//             src={fullbodyapplicantimage} 
+//             style={{
+//                 height: "100%", 
+//                 width: "auto", 
+//                 display: 'block' // Prevents any extra space at the bottom
+//             }} 
+//             alt="" 
+//         />
+//     </div>
+// </div>
 
 
 
-</div>
-                </div>
+// </div>
+//                 </div>
 
 
-                {/* footer */}
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
-                <div style={{display: "flex", justifyContent: "space-between", flexDirection: "row", background: "", width: "100%" }}>
+//                 {/* footer */}
+//                 <div style={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
+//                 <div style={{display: "flex", justifyContent: "space-between", flexDirection: "row", background: "", width: "100%" }}>
 
-                    <div style={{display: "flex", flexDirection: "column",}}>
+//                     <div style={{display: "flex", flexDirection: "column",}}>
                           
-                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+//                           <div style={{display: "flex", flexDirection: "row", background: "" }}>
 
                           
 
-                          <div style={{background: ""}} >
-                          <img  src={phoneIcon} alt='' />
-                          </div>
+//                           <div style={{background: ""}} >
+//                           <img  src={phoneIcon} alt='' />
+//                           </div>
 
-                          <div style={{marginLeft: "20px"}}>Phone</div>
+//                           <div style={{marginLeft: "20px"}}>Phone</div>
                         
-                        </div>
+//                         </div>
 
-                        <div>0582894204 & 0550507629&</div>
+//                         <div>0582894204 & 0550507629&</div>
 
-                        <div>0550507629 & 0595855829</div>
+//                         <div>0550507629 & 0595855829</div>
 
-                    </div>
+//                     </div>
 
-                    <div style={{display: "flex", flexDirection: "column",}}>
+//                     <div style={{display: "flex", flexDirection: "column",}}>
                           
-                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+//                           <div style={{display: "flex", flexDirection: "row", background: "" }}>
 
                           
 
-                          <div style={{background: ""}} >
-                          <img  src={EmailIcon} alt='' />
-                          </div>
+//                           <div style={{background: ""}} >
+//                           <img  src={EmailIcon} alt='' />
+//                           </div>
 
-                          <div style={{marginLeft: "20px"}}>Email</div>
+//                           <div style={{marginLeft: "20px"}}>Email</div>
                         
-                        </div>
+//                         </div>
 
-                        <div>canoffice16@gmail.co</div>
+//                         <div>canoffice16@gmail.co</div>
 
                         
 
-                    </div>
+//                     </div>
 
-                    <div style={{display: "flex", flexDirection: "column",}}>
+//                     <div style={{display: "flex", flexDirection: "column",}}>
                           
-                          <div style={{display: "flex", flexDirection: "row", background: "" }}>
+//                           <div style={{display: "flex", flexDirection: "row", background: "" }}>
 
                           
 
-                          <div style={{background: ""}} >
-                          <img  src={AddressIcon} alt='' />
-                          </div>
+//                           <div style={{background: ""}} >
+//                           <img  src={AddressIcon} alt='' />
+//                           </div>
 
-                          <div style={{marginLeft: "20px"}}>Address</div>
+//                           <div style={{marginLeft: "20px"}}>Address</div>
                         
-                        </div>
+//                         </div>
 
-                        <div>
-  Prince Saud bin Abdul Aziz Al Saud <br /> Al Kabeer – Riyadh KSA PO
-</div>
+//                         <div>
+//   Prince Saud bin Abdul Aziz Al Saud <br /> Al Kabeer – Riyadh KSA PO
+// </div>
                        
 
-                    </div>
+//                     </div>
 
 
-                    </div>
+//                     </div>
 
 
-                </div>
-                {/* footer end */}
+//                 </div>
+//                 {/* footer end */}
 
 
-            </div>
-            <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
-                Generate PDF
-            </button>
-        </div>
-    );
+//             </div>
+//             <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
+//                 Generate PDF
+//             </button>
+//         </div>
+//     );
+// };
+
+// export default TableToPdf;
+
+
+
+/////////////////////////////////////////////////////////
+
+
+// import React, { useState } from 'react';
+
+// const PostDummyData = () => {
+//   const [message, setMessage] = useState('');
+//   const [error, setError] = useState('');
+
+//   const handlePostDummyData = async () => {
+//     const dummyData = { newValue: 6 }; // Ensure this is an integer
+
+//     try {
+//       const response = await fetch('https://skywayapi.ntechagent.com/api/count', {
+//         method: 'PUT', // Assuming you want to update the count
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(dummyData),
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to post dummy data');
+//       }
+
+//       const result = await response.text(); // Adjust if your API returns JSON
+//       setMessage(`Successfully posted: ${result}`);
+//     } catch (error) {
+//       console.error('Error:', error);
+//       setError('Failed to post dummy data. Please try again.');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h2>Post Dummy Data</h2>
+//       <button onClick={handlePostDummyData}>Send Dummy Data</button>
+//       {message && <p style={{ color: 'green' }}>{message}</p>}
+//       {error && <p style={{ color: 'red' }}>{error}</p>}
+//     </div>
+//   );
+// };
+
+// export default PostDummyData;
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+import React, { useEffect, useState } from 'react';
+
+const DisplayCount = () => {
+  const [count, setCount] = useState(0);
+  const [error, setError] = useState('');
+
+  const fetchCount = async () => {
+    try {
+      const response = await fetch('https://skywayapi.ntechagent.com/api/count');
+      if (!response.ok) {
+        throw new Error('Failed to fetch count');
+      }
+      const data = await response.json();
+      setCount(data.cv_count); // Set the count from the response
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Failed to fetch count. Please try again.');
+    }
+  };
+
+  useEffect(() => {
+    fetchCount(); // Fetch the count when the component mounts
+  }, []);
+
+  // Helper function to format the count
+  const formatCount = (number) => {
+    if (number < 10) {
+      return `00${number}`; // Add "00" for single digits
+    } else if (number < 100) {
+      return `0${number}`; // Add "0" for two digits
+    }
+    return number.toString(); // Leave as is for three or more digits
+  };
+
+  return (
+    <div>
+      <h2>Current Count: {formatCount(count)}</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
 };
 
-export default TableToPdf;
+export default DisplayCount;

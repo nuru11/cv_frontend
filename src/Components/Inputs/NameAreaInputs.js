@@ -54,7 +54,7 @@ class NameArea extends Component {
                         </div>
 
                         <div className="input-container">
-                        <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Family Name</span>*</span>
+                        <span className="required"><span style={{color: "black", fontWeight: "normal"}}>Last Name</span>*</span>
                             <Inputs className="input-spacing" placeholder='Family Name' TextVal={this.props.info.familyName} callback={this.props.callback} onFocus={onInputFocus} onBlur={onInputBlur} idVal={'personalInfo-familyName-input'} />
                             { this.props.info.familyName === "" && this.props.info.emptyfield === true ? <div style={{color: "red"}}>this field is required</div> : ""}
                         </div>
