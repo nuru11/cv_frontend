@@ -1902,46 +1902,411 @@
 //////////////////////////////////////////////////////////////////////////////
 
 
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
-const DisplayCount = () => {
-  const [count, setCount] = useState(0);
-  const [error, setError] = useState('');
+// const DisplayCount = () => {
+//   const [count, setCount] = useState(0);
+//   const [error, setError] = useState('');
 
-  const fetchCount = async () => {
-    try {
-      const response = await fetch('https://skywayapi.ntechagent.com/api/count');
-      if (!response.ok) {
-        throw new Error('Failed to fetch count');
-      }
-      const data = await response.json();
-      setCount(data.cv_count); // Set the count from the response
-    } catch (error) {
-      console.error('Error:', error);
-      setError('Failed to fetch count. Please try again.');
-    }
-  };
+//   const fetchCount = async () => {
+//     try {
+//       const response = await fetch('https://skywayapi.ntechagent.com/api/count');
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch count');
+//       }
+//       const data = await response.json();
+//       setCount(data.cv_count); // Set the count from the response
+//     } catch (error) {
+//       console.error('Error:', error);
+//       setError('Failed to fetch count. Please try again.');
+//     }
+//   };
 
-  useEffect(() => {
-    fetchCount(); // Fetch the count when the component mounts
-  }, []);
+//   useEffect(() => {
+//     fetchCount(); // Fetch the count when the component mounts
+//   }, []);
 
-  // Helper function to format the count
-  const formatCount = (number) => {
-    if (number < 10) {
-      return `00${number}`; // Add "00" for single digits
-    } else if (number < 100) {
-      return `0${number}`; // Add "0" for two digits
-    }
-    return number.toString(); // Leave as is for three or more digits
-  };
+//   // Helper function to format the count
+//   const formatCount = (number) => {
+//     if (number < 10) {
+//       return `00${number}`; // Add "00" for single digits
+//     } else if (number < 100) {
+//       return `0${number}`; // Add "0" for two digits
+//     }
+//     return number.toString(); // Leave as is for three or more digits
+//   };
 
-  return (
-    <div>
-      <h2>Current Count: {formatCount(count)}</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+//   return (
+//     <div>
+//       <h2>Current Count: {formatCount(count)}</h2>
+//       {error && <p style={{ color: 'red' }}>{error}</p>}
+//     </div>
+//   );
+// };
+
+// export default DisplayCount;
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+import React from 'react';
+import html2pdf from 'html2pdf.js';
+
+import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
+import phoneIcon from "../image_placeholder/phoneIcon.png"
+import EmailIcon from "../image_placeholder/emailIcon.png"
+import AddressIcon from "../image_placeholder/addressIcon.png"
+import { Height } from '@mui/icons-material';
+
+import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
+
+
+const TableToPdf = () => {
+    const downloadMultipleCVs = async () => {
+        const pdfElements = [
+            { elementId: 'QimamAsiaCv', filename: 'Qimam Asia.pdf' },
+            // Add more elements as needed
+        ];
+
+        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
+            const element = document.getElementById(elementId);
+            const options = {
+                margin: [1, 0.9, 1, 1],
+                // marginTop: 0,
+                filename: filename,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+            };
+
+            return html2pdf().from(element).set(options).save();
+        });
+
+        await Promise.all(downloadPromises);
+    };
+
+    return (
+        <div>
+            <div id="QimamAsiaCv" style={{ display: '' }}>
+               
+
+               <div >
+
+
+                 {/* header */}
+                 <div style={{display: "grid", gridTemplateColumns: "75% 25%"}}>
+
+
+                 <div style={{display: "flex", flexDirection: "column"}}>
+
+                    <div style={{marginBottom: "20px", fontSize: "large", color: "#2ca2d4"}}>APPLICATION FOR EMPLOYMENT</div>
+
+<div style={{display: "flex", marginBottom: "20px" }}>
+    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px", color: "#2ca2d4"}}>DATE APPLIED</div>
+    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px"}}>aaa</div>
+    
+</div>
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        POSITION APPLIED FOR
     </div>
-  );
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+        الوظيفة
+    </div>
+</div>
+
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+ MONTHLY SALARY    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+        
+        الراتب الشهري
+    </div>
+</div>
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        CONTRACT PERIOD
+    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+        مدة العقد
+    </div>
+</div>
+
+
+</div>
+
+
+                      <div  style={{width: "100%"}}>
+                      <img src={fullbodyapplicantimage} alt="Wider" className="wider-image" style={{width: "100%"}} />
+                      </div>  
+
+
+                                          
+
+
+
+                    </div>
+                {/* header end */}
+
+                {/* full name section */}
+
+                <div style={{display: "flex", marginTop: "10px", marginBottom: "10px"}}>
+                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#2ca2d4", background: "#CECEEF"}}>FULL NAME</div>
+                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
+                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#AB1319", background: "#CECEEF"}}>الاسم الاول</div>
+                </div>
+
+                <div className='table-main-parent' style={{display: "", height: "20px",  }}>
+                    <div style={{display: "flex", justifyContent: "space-between", border: "2px solid black", background: "#CECEEF" }}><span style={{marginLeft: "10px", color: "#2ca2d4"}}>DETAILS OF APPLICATION</span> <span style={{marginRight: "10px", color: "#AB1319"}}>بيانات صاحب الطلب</span></div>
+                    <div style={{display: "none", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
+                   
+                </div>
+
+                {/* full name section end */}
+
+
+                {/* full body image and table */}
+
+
+                <div className="table-main-parent" style={{background: "", height: "100%"}}>
+                    <div class="table-parent"  style={{background: "", height: "100%"}}>
+
+
+
+<div style={{color: "#2ca2d4"}}>NATIONALITY</div>
+<div></div>
+<div style={{color: "#AB1319"}}>الجنسية</div>
+
+<div style={{color: "#2ca2d4"}}>RELIGION</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>الديانة</div>
+
+<div style={{color: "#2ca2d4"}}>DATE OF BIRTH</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>تاريخ الميلاد</div>
+
+<div style={{color: "#2ca2d4"}}>PLACE Of Birth</div>
+<div>dddd</div>
+<div style={{color: "#AB1319"}}>مكان الولادة</div>
+
+<div style={{color: "#2ca2d4"}}>AGE</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>العمر</div>
+
+<div style={{color: "#2ca2d4"}}>LIVING TOWN</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>مكان السكن</div>
+
+<div style={{height: 35, color: "#2ca2d4"}}>MARITAL STATUS</div>
+<div style={{height: 35,}}>ddd</div>
+<div style={{height: 35, color: "#AB1319"}}>الحالة الاجتماعية</div>
+
+<div style={{height: 35, color: "#2ca2d4"}} >NUMBER OF CHILDREN</div>
+<div style={{height: 35}}>dddd</div>
+<div style={{height: 35, color: "#AB1319"}}>عدد الاطفال</div>
+
+<div style={{color: "#2ca2d4",}}>WEIGHT</div>
+<div>dddd</div>
+<div style={{color: "#AB1319"}}>الوزن</div>
+
+<div style={{color: "#2ca2d4"}}>HEIGHT</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>الطول</div>
+
+<div style={{color: "#2ca2d4"}}>COMPLEXION</div>
+<div>ddd</div>
+<div style={{color: "#AB1319"}}>لون البشرة</div>
+
+<div style={{height: 35, color: "#2ca2d4"}}>EDUCATIONAL Qualification</div>
+<div style={{height: 35}}>ddd</div>
+<div style={{height: 35, color: "#AB1319"}}> الدرجة العلمية</div>
+
+<div style={{width: "200px", color: "#2ca2d4"}}>CONTACT NUMBER</div>
+<div style={{borderColor: "transparent"}}></div>
+<div style={{borderColor: "transparent black transparent transparent"}}></div>
+
+
+<div style={{ width: "300px", fontSize: "15px", background: "#CECEEF", paddingLeft: "10px", position: "relative", zIndex: 2, display: "flex", justifyContent: "flex-start", borderColor: "black transparent black black" }}>
+    Previous experience
+</div>
+<div style={{ borderColor: "black transparent black transparent", background: "#CECEEF",  position: "relative", zIndex: -1, }}></div>
+<div style={{ borderColor: "black black black transparent", background: "#CECEEF",  position: "relative", zIndex: 1, }}></div>
+
+
+<div style={{color: "#2ca2d4"}}>COUNTRY</div>
+<div ></div>
+<div >  </div>
+
+<div style={{color: "#2ca2d4"}}>DURATION</div>
+<div ></div>
+<div >  </div>
+
+<div style={{color: "#2ca2d4"}}>POSITION</div>
+<div ></div>
+<div >  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div style={{ height: "100%", background: "" }}>
+    <div style={{ height: "100%" }}>
+        <img 
+            src={fullbodyapplicantimage !== null ? fullbodyapplicantimage : fullbodyapplicantimage} 
+            alt="Full Body" 
+            style={{ height: "100%", width: "100%", objectFit: "cover" }} 
+        />
+    </div>
+    {/* <div>
+        <img src={fullbodyapplicantimage} alt="Agent Logo" className="agent-logo" />
+    </div> */}
+</div>
+                    </div>
+
+                  
+
+                {/* full body image and table end */}
+
+
+                {/* experience boolean */}
+
+
+                 <div  style={{background: "red", height: "auto"}}>
+                
+                    
+                
+                                    <div className="specific-exp-atitle-sec" style={{borderColor: " black black transparent black", backgroundColor: "white"}}>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white black", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>تربية الاطفال</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>النظافة</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الغسيل</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الطبخ</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>العناية بالمسنين</div>
+                                    </div>
+                                    <div className="specific-exp-etitle-sec" style={{borderColor: "transparent black black black", backgroundColor: "white", }}>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>BABY SITTING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>CLEANING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>WASHING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-3px"}}>COOKING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>ELDER CARE</div>
+                                    </div>
+                                    <div className="exp-trueorfalse-sec" style={{background: "white"}}>
+                                        <div style={{background: "white"}}>YES</div>
+                                        <div style={{background: "white"}}>YES</div>
+                                        <div style={{background: "white"}}>YES</div>
+                                        <div style={{background: "white"}}>NO</div>
+                                        <div style={{background: "white"}}>NO</div>
+                                    </div>
+                
+                                    </div>
+
+
+                {/* experience boolean end */}
+
+
+                {/* footer  */}
+
+
+                <div style={{display: "grid", gridTemplateColumns: "50% 50%", marginTop: "20px", }}>
+
+
+                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+
+
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        PASSPORT NO.
+    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+   
+</div>
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        DATE ISSUED
+    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+   
+</div>
+
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        DATE EXPIRY
+    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+   
+</div>
+
+
+<div style={{ display: "flex", alignItems: "center" }}>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+        PLACE OF ISSUE
+    </div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+   
+</div>
+
+
+</div>
+
+
+                      <div  style={{width: "100%", border: "2px solid black", }}>
+
+                      <div style={{color: "#2ca2d4", fontWeight: "bold", marginLeft: "5px"}}>REMARK</div>
+
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS FIRST TIME.</div>
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN DO ALL AROUND HOUSEHOLD CHORES.</div>
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO TAKE CARE BABY.</div>
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN WASH AND IRON CLOTHES.</div>
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO LEARN ARABIC FOOD WITH HELP OF THE SPONSOR.</div>
+                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>FAIR/ENGLISH LANGUAGE.</div>
+
+
+                      </div>  
+
+
+                                          
+
+
+
+                    </div>
+
+                {/* footer end */}
+
+
+               </div>
+              
+
+            </div>
+            <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
+                Generate PDF
+            </button>
+        </div>
+    );
 };
 
-export default DisplayCount;
+export default TableToPdf;
