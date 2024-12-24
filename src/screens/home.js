@@ -1646,6 +1646,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
   
         const result = await response.text(); // Adjust if your API returns JSON
         setMessage(`Successfully posted: ${result}`);
+        fetchCount();
       } catch (error) {
         console.error('Error:', error);
         setError('Failed to post dummy data. Please try again.');
@@ -1682,7 +1683,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         // Wait for all downloads to complete
         await Promise.all(downloadPromises);
 
-        fetchCount();
+        // fetchCount();
     }
 
 
@@ -1787,10 +1788,13 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
    
          const result = await response.text(); // Adjust if your API returns JSON
          setMessage(`Successfully posted: ${result}`);
+         fetchCount();
        } catch (error) {
          console.error('Error:', error);
          setError('Failed to post dummy data. Please try again.');
        }
+
+      
    
        const downloadPromises = pdfElements.map(({ elementId, filename, margin, format }) => {
            const element = document.getElementById(elementId);
@@ -1807,9 +1811,11 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         });
     
         // Wait for all downloads to complete
+
+       
         await Promise.all(downloadPromises);
 
-        fetchCount();
+       
         
     }
 
