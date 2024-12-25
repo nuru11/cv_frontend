@@ -2459,6 +2459,8 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                 label="ELDER CARE"
             />
 
+            {personalInfo.monthlysalarySaudi} lllllllllllllllll
+
 {/* <FormControlLabel
                 control={
                     <Checkbox
@@ -3563,7 +3565,7 @@ src={applicantpersonalimagePreview !== null
                     <div className="exp-trueorfalse-sec">
                         <div>{expcheck.exp1 ? "YES" : "NO"}</div>
                         <div>{expcheck.exp2 ? "YES" : "NO"}</div>
-                        <div>{expcheck.exp3 ? "YES" : "NO"}</div>
+                        <div>{expcheck.exp3 ? "YES" : "NO"}</div>   
                         <div>{expcheck.exp4 ? "YES" : "NO"}</div>
                         <div>{expcheck.exp5 ? "YES" : "NO"}</div>
                     </div>
@@ -4164,10 +4166,19 @@ src={applicantpassportimagePreview !== null
 
                     <div style={{marginBottom: "20px", fontSize: "large", color: "#2ca2d4"}}>APPLICATION FOR EMPLOYMENT</div>
 
-<div style={{display: "flex", marginBottom: "20px" }}>
+{/* <div style={{display: "flex", marginBottom: "20px" }}>
     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px", color: "#2ca2d4"}}>DATE APPLIED</div>
-    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px"}}>aaa</div>
+    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px"}}>{monthName} {dayNumber}, {year}</div>
     
+</div> */}
+
+<div style={{ display: "flex", marginBottom: "20px" }}>
+    <div style={{ display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px", color: "#2ca2d4" }}>
+        DATE APPLIED
+    </div>
+    <div style={{ display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px" }}>
+        {monthName.substring(0, 3)} {dayNumber}, {year}
+    </div>
 </div>
 
 
@@ -4175,7 +4186,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         POSITION APPLIED FOR
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: personalInfo.postAppliedFor ? "black" : "transparent"  }}>{personalInfo.postAppliedFor ? personalInfo.postAppliedFor : "no"}</div>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
         الوظيفة
     </div>
@@ -4186,7 +4197,7 @@ src={applicantpassportimagePreview !== null
 <div style={{ display: "flex", alignItems: "center" }}>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
  MONTHLY SALARY    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: salaries.saudi ? "black" : "transparent" }}>{salaries.saudi ? salaries.saudi + " SAR" : "-"}</div>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
         
         الراتب الشهري
@@ -4198,7 +4209,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         CONTRACT PERIOD
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: sponsorInformation.contract ? "black" : "transparent"  }}>{sponsorInformation.contract ? sponsorInformation.contract : "-"}</div>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
         مدة العقد
     </div>
@@ -4209,7 +4220,9 @@ src={applicantpassportimagePreview !== null
 
 
                       <div  style={{width: "100%"}}>
-                      <img src={fullbodyapplicantimage} alt="Wider" className="wider-image" style={{width: "100%"}} />
+                      <img src={applicantpersonalimagePreview !== null
+    ? applicantpersonalimagePreview
+    : imagePlaceholder} alt="Wider" className="wider-image" style={{width: "100%"}} />
                       </div>  
 
 
@@ -4224,7 +4237,7 @@ src={applicantpassportimagePreview !== null
 
                 <div style={{display: "flex", marginTop: "10px", marginBottom: "10px"}}>
                     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#2ca2d4", background: "#CECEEF"}}>FULL NAME</div>
-                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
+                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "50%"}}>{personalInfo.name} {personalInfo.middleName} {personalInfo.familyName}</div>
                     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#AB1319", background: "#CECEEF"}}>الاسم الاول</div>
                 </div>
 
@@ -4246,56 +4259,56 @@ src={applicantpassportimagePreview !== null
 
 
 <div style={{color: "#2ca2d4"}}>NATIONALITY</div>
-<div></div>
+<div>{sponsorInformation.currentNationality}</div>
 <div style={{color: "#AB1319"}}>الجنسية</div>
 
 <div style={{color: "#2ca2d4"}}>RELIGION</div>
-<div>ddd</div>
+<div>{personalInfo.religion}</div>
 <div style={{color: "#AB1319"}}>الديانة</div>
 
 <div style={{color: "#2ca2d4"}}>DATE OF BIRTH</div>
-<div>ddd</div>
+<div>{personalInfo.dateOfBirth}</div>
 <div style={{color: "#AB1319"}}>تاريخ الميلاد</div>
 
 <div style={{color: "#2ca2d4"}}>PLACE Of Birth</div>
-<div>dddd</div>
+<div>{personalInfo.placeOfBirth}</div>
 <div style={{color: "#AB1319"}}>مكان الولادة</div>
 
 <div style={{color: "#2ca2d4"}}>AGE</div>
-<div>ddd</div>
+<div>{personalInfo.age}</div>
 <div style={{color: "#AB1319"}}>العمر</div>
 
 <div style={{color: "#2ca2d4"}}>LIVING TOWN</div>
-<div>ddd</div>
+<div>{personalInfo.passportIssuePlace}</div>
 <div style={{color: "#AB1319"}}>مكان السكن</div>
 
 <div style={{height: 35, color: "#2ca2d4"}}>MARITAL STATUS</div>
-<div style={{height: 35,}}>ddd</div>
+<div style={{height: 35,}}>{personalInfo.maritalStatus}</div>
 <div style={{height: 35, color: "#AB1319"}}>الحالة الاجتماعية</div>
 
 <div style={{height: 35, color: "#2ca2d4"}} >NUMBER OF CHILDREN</div>
-<div style={{height: 35}}>dddd</div>
+<div style={{height: 35}}>{personalInfo.numberOfChildren}</div>
 <div style={{height: 35, color: "#AB1319"}}>عدد الاطفال</div>
 
 <div style={{color: "#2ca2d4",}}>WEIGHT</div>
-<div>dddd</div>
+<div>{personalInfo.weight ? personalInfo.weight + " KG" : ""}</div>
 <div style={{color: "#AB1319"}}>الوزن</div>
 
 <div style={{color: "#2ca2d4"}}>HEIGHT</div>
-<div>ddd</div>
+<div>{personalInfo.height ? personalInfo.height + " CM" : ""}</div>
 <div style={{color: "#AB1319"}}>الطول</div>
 
 <div style={{color: "#2ca2d4"}}>COMPLEXION</div>
-<div>ddd</div>
+<div>-</div>
 <div style={{color: "#AB1319"}}>لون البشرة</div>
 
 <div style={{height: 35, color: "#2ca2d4"}}>EDUCATIONAL Qualification</div>
-<div style={{height: 35}}>ddd</div>
+<div style={{height: 35}}>{personalInfo.educationAttainment}</div>
 <div style={{height: 35, color: "#AB1319"}}> الدرجة العلمية</div>
 
 <div style={{width: "200px", color: "#2ca2d4"}}>CONTACT NUMBER</div>
 <div style={{borderColor: "transparent"}}></div>
-<div style={{borderColor: "transparent black transparent transparent"}}></div>
+<div style={{borderColor: "transparent black transparent transparent", paddingRight: "5px"}}>{personalInfo.contactPhoneNumber}</div>
 
 
 <div style={{ width: "300px", fontSize: "15px", background: "#CECEEF", paddingLeft: "10px", position: "relative", zIndex: 2, display: "flex", justifyContent: "flex-start", borderColor: "black transparent black black" }}>
@@ -4306,15 +4319,15 @@ src={applicantpassportimagePreview !== null
 
 
 <div style={{color: "#2ca2d4"}}>COUNTRY</div>
-<div ></div>
+<div >{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.name}{i.name ? "," : ""} </span> )}</div>
 <div >  </div>
 
 <div style={{color: "#2ca2d4"}}>DURATION</div>
-<div ></div>
+<div >{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.overview}{i.overview ? "," : ""} </span> )}</div>
 <div >  </div>
 
 <div style={{color: "#2ca2d4"}}>POSITION</div>
-<div ></div>
+<div >{projectInfo.project.map(i =>  <span style={{marginRight: "3px"}}>{i.link}{i.link ? "," : ""} </span> )}</div>
 <div >  </div>
 
 
@@ -4332,7 +4345,9 @@ src={applicantpassportimagePreview !== null
 <div style={{ height: "100%", background: "" }}>
     <div style={{ height: "100%" }}>
         <img 
-            src={fullbodyapplicantimage !== null ? fullbodyapplicantimage : fullbodyapplicantimage} 
+            src={applicantfullbodyimagePreview !== null
+                ? applicantfullbodyimagePreview
+                : imagePlaceholder} 
             alt="Full Body" 
             style={{ height: "100%", width: "100%", objectFit: "cover" }} 
         />
@@ -4355,26 +4370,42 @@ src={applicantpassportimagePreview !== null
                 
                     
                 
-                                    <div className="specific-exp-atitle-sec" style={{borderColor: " black black transparent black", backgroundColor: "white"}}>
+                                    <div className="specific-exp-atitle-sec" style={{borderColor: " black black transparent black", backgroundColor: "white", display: "grid", gridTemplateColumns: "20% 16% 16% 16% 16% 16%"}}>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>تربية الاطفال</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>النظافة</div>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الغسيل</div>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الطبخ</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>العناية بالمسنين</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>كي الملابس</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>النظافة</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>تقديم الرعاية </div>
+
+                                        
+                                        
+                                        
+                                        
+                                        
                                     </div>
-                                    <div className="specific-exp-etitle-sec" style={{borderColor: "transparent black black black", backgroundColor: "white", }}>
+                                    <div className="specific-exp-etitle-sec" style={{borderColor: "transparent black black black", backgroundColor: "white", display: "grid", gridTemplateColumns: "20% 16% 16% 16% 16% 16%" }}>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>BABY SITTING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>CLEANING</div>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>WASHING</div>
                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-3px"}}>COOKING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>ELDER CARE</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>IRONING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>CLEANING</div>
+                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-3px"}}>CAREGIVING</div>
+
+
+                                        
+                                        
+
+                                        
+                                        
                                     </div>
-                                    <div className="exp-trueorfalse-sec" style={{background: "white"}}>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>NO</div>
-                                        <div style={{background: "white"}}>NO</div>
+                                    <div className="exp-trueorfalse-sec" style={{background: "white", display: "grid", gridTemplateColumns: "20% 16% 16% 16% 16% 16%"}}>
+                                        <div style={{background: "white"}}>{expcheck.exp1 ? "YES" : "NO"}</div>
+                                        <div style={{background: "white"}}>{expcheck.exp3 ? "YES" : "NO"}</div>
+                                        <div style={{background: "white"}}>{expcheck.exp4 ? "YES" : "NO"}</div>
+                                        <div style={{background: "white"}}>{expcheck.ironingclothes ? "YES" : "NO"}</div>
+                                        <div style={{background: "white"}}>{expcheck.exp2 ? "YES" : "NO"}</div>
+                                        <div style={{background: "white"}}>{expcheck.exp5 ? "YES" : "NO"}</div>
                                     </div>
                 
                                     </div>
@@ -4398,7 +4429,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PASSPORT NO.
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{personalInfo.passportNo}</div>
    
 </div>
 
@@ -4407,7 +4438,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE ISSUED
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{dateOfIssue}</div>
    
 </div>
 
@@ -4417,7 +4448,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE EXPIRY
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{dateOfExpiry}</div>
    
 </div>
 
@@ -4426,7 +4457,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PLACE OF ISSUE
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{personalInfo.passportIssuePlace}</div>
    
 </div>
 
