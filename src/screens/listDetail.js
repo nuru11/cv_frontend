@@ -2925,7 +2925,7 @@ src={data.passportImageUrl || imagePlaceholder}
 <div style={{color: "#AB1319"}}>العمر</div>
 
 <div style={{color: "#2ca2d4"}}>LIVING TOWN</div>
-<div>{data.passportIssuePlace}</div>
+<div>{data.placeofbirth}</div>
 <div style={{color: "#AB1319"}}>مكان السكن</div>
 
 <div style={{height: 35, color: "#2ca2d4"}}>MARITAL STATUS</div>
