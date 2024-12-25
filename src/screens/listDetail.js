@@ -3073,7 +3073,7 @@ src={data.passportImageUrl || imagePlaceholder}
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PASSPORT NO.
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{data.passportnum}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: data.passportnum ? "black" : "transparent" }}>{data.passportnum ? data.passportnum : "-"}</div>
    
 </div>
 
@@ -3082,7 +3082,7 @@ src={data.passportImageUrl || imagePlaceholder}
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE ISSUED
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{data.dateofissue}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: data.dateofissue ? "black" : "transparent" }}>{data.dateofissue ? data.dateofissue : "-"}</div>
    
 </div>
 
@@ -3092,7 +3092,7 @@ src={data.passportImageUrl || imagePlaceholder}
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE EXPIRY
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{data.expireddate}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: data.expireddate ? "black" : "transparent" }}>{data.expireddate  ? data.expireddate : "-"}</div>
    
 </div>
 
@@ -3101,7 +3101,7 @@ src={data.passportImageUrl || imagePlaceholder}
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PLACE OF ISSUE
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{data.passportIssuePlace}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: data.passportIssuePlace ? "black" : "transparent" }}>{data.passportIssuePlace ? data.passportIssuePlace : "-"}</div>
    
 </div>
 

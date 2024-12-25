@@ -2459,7 +2459,7 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
                 label="ELDER CARE"
             />
 
-            {personalInfo.monthlysalarySaudi} lllllllllllllllll
+           
 
 {/* <FormControlLabel
                 control={
@@ -4429,7 +4429,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PASSPORT NO.
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{personalInfo.passportNo}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" , color: personalInfo.passportNo ? "black" : "transparent" }}>{personalInfo.passportNo ? personalInfo.passportNo : "-"}</div>
    
 </div>
 
@@ -4438,7 +4438,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE ISSUED
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{dateOfIssue}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: dateOfIssue ? "black" : "transparent" }}>{dateOfIssue ? dateOfIssue : "-"}</div>
    
 </div>
 
@@ -4448,7 +4448,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         DATE EXPIRY
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{dateOfExpiry}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: dateOfExpiry ? "black" : "transparent" }}>{dateOfExpiry ? dateOfExpiry : "-"}</div>
    
 </div>
 
@@ -4457,7 +4457,7 @@ src={applicantpassportimagePreview !== null
     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
         PLACE OF ISSUE
     </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>{personalInfo.passportIssuePlace}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: personalInfo.passportIssuePlace ? "black" : "transparent" }}>{personalInfo.passportIssuePlace ? personalInfo.passportIssuePlace : "-"}</div>
    
 </div>
 
