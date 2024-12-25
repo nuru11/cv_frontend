@@ -2845,7 +2845,7 @@ src={data.passportImageUrl || imagePlaceholder}
 <div style={{ display: "flex", alignItems: "center" }}>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
  MONTHLY SALARY    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: data.monthlysalarySaudi ? "black" : "transparent" }}>{data.monthlysalarySaudi ? data.postAppliedFor + " SAR" : "-"}</div>
+    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: data.monthlysalarySaudi ? "black" : "transparent" }}>{data.monthlysalarySaudi ? data.monthlysalarySaudi + " SAR" : "-"}</div>
     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
         
         الراتب الشهري
@@ -2965,15 +2965,15 @@ src={data.passportImageUrl || imagePlaceholder}
 
 
 <div style={{color: "#2ca2d4"}}>COUNTRY</div>
-<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name}, </span> )}</div>
+<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.name ? i.name + "," : ""} </span> )}</div>
 <div >  </div>
 
 <div style={{color: "#2ca2d4"}}>DURATION</div>
-<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview}, </span> )}</div>
+<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.overview ? i.overview + "," : ""} </span> )}</div>
 <div >  </div>
 
 <div style={{color: "#2ca2d4"}}>POSITION</div>
-<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.link}, </span> )}</div>
+<div >{data.experience && JSON.parse(data.experience).map(i =>  <span style={{marginRight: "3px"}}>{i.link ? i.link + "," : ""} </span> )}</div>
 <div >  </div>
 
 
