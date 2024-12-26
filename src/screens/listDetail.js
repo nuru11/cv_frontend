@@ -1015,7 +1015,7 @@ const downloadCV = () => {
             { label: 'Nationality', value: data.currentNationality, htmlFor: "ENATIONALITY", id: "NATIONALITY" },
             { label: 'Marital Status', value: data.martialstatus, htmlFor: "EMARTIALSTATUS", id: "SOCIAL_STATUS" },
             { label: 'Number of Children', value: data.numberofchildren, htmlFor: "ENUMBEROFCHILDREN", id: "ENUMBEROFCHILDREN" },
-            { label: 'Religion', value: /*data.religion*/ "Islam", htmlFor: "ERELIGION", id: "RELIGION" },
+            { label: 'Religion', value: data.religion /*"Islam"*/, htmlFor: "ERELIGION", id: "RELIGION" },
             { label: 'Weight', value: data.weight + " km", htmlFor: "EWEIGHT", id: "EWEIGHT"  },
             { label: 'Height', value: data.height + " cm" , htmlFor: "EHEIGHT", id: "EHEIGHT" },
             { label: 'Education Attainment', value: data.educationattainment, htmlFor: "EEDUCATION", id: "DEGREE" },
