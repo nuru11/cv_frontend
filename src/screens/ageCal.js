@@ -1952,212 +1952,210 @@
 
 
 
-import React from 'react';
-import html2pdf from 'html2pdf.js';
+// import React from 'react';
+// import html2pdf from 'html2pdf.js';
 
-import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
-import phoneIcon from "../image_placeholder/phoneIcon.png"
-import EmailIcon from "../image_placeholder/emailIcon.png"
-import AddressIcon from "../image_placeholder/addressIcon.png"
-import { Height } from '@mui/icons-material';
+// import fullbodyapplicantimage from "../image_placeholder/fullbodyapplicantimage.jpeg"
+// import phoneIcon from "../image_placeholder/phoneIcon.png"
+// import EmailIcon from "../image_placeholder/emailIcon.png"
+// import AddressIcon from "../image_placeholder/addressIcon.png"
+// import { Height } from '@mui/icons-material';
 
-import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
+// import KaanAlRiyadhHeaderImg from "../image_placeholder/KaanAlRiyadh.png"
 
 
-const TableToPdf = () => {
-    const downloadMultipleCVs = async () => {
-        const pdfElements = [
-            { elementId: 'QimamAsiaCv', filename: 'Qimam Asia.pdf' },
-            // Add more elements as needed
-        ];
+// const TableToPdf = () => {
+//     const downloadMultipleCVs = async () => {
+//         const pdfElements = [
+//             { elementId: 'QimamAsiaCv', filename: 'Qimam Asia.pdf' },
+//             // Add more elements as needed
+//         ];
 
-        const downloadPromises = pdfElements.map(({ elementId, filename }) => {
-            const element = document.getElementById(elementId);
-            const options = {
-                margin: [1, 0.9, 1, 1],
-                // marginTop: 0,
-                filename: filename,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
-            };
+//         const downloadPromises = pdfElements.map(({ elementId, filename }) => {
+//             const element = document.getElementById(elementId);
+//             const options = {
+//                 margin: [1, 0.9, 1, 1],
+//                 // marginTop: 0,
+//                 filename: filename,
+//                 image: { type: 'jpeg', quality: 0.98 },
+//                 html2canvas: { scale: 2 },
+//                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+//             };
 
-            return html2pdf().from(element).set(options).save();
-        });
+//             return html2pdf().from(element).set(options).save();
+//         });
 
-        await Promise.all(downloadPromises);
-    };
+//         await Promise.all(downloadPromises);
+//     };
 
-    return (
-        <div>
-            <div id="QimamAsiaCv" style={{ display: '' }}>
+//     return (
+//         <div>
+//             <div id="QimamAsiaCv" style={{ display: '' }}>
                
 
-               <div >
+//                <div >
 
 
-                 {/* header */}
-                 <div style={{display: "grid", gridTemplateColumns: "75% 25%"}}>
+//                  {/* header */}
+//                  <div style={{display: "grid", gridTemplateColumns: "75% 25%"}}>
 
 
-                 <div style={{display: "flex", flexDirection: "column"}}>
+//                  <div style={{display: "flex", flexDirection: "column"}}>
 
-                    <div style={{marginBottom: "20px", fontSize: "large", color: "#2ca2d4"}}>APPLICATION FOR EMPLOYMENT</div>
+//                     <div style={{marginBottom: "20px", fontSize: "large", color: "#2ca2d4"}}>APPLICATION FOR EMPLOYMENT</div>
 
-<div style={{display: "flex", marginBottom: "20px" }}>
-    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px", color: "#2ca2d4"}}>DATE APPLIED</div>
-    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px"}}>aaa</div>
+// <div style={{display: "flex", marginBottom: "20px" }}>
+//     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px", color: "#2ca2d4"}}>DATE APPLIED</div>
+//     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "40%", fontSize: "12px"}}>aaa</div>
     
-</div>
+// </div>
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        POSITION APPLIED FOR
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", }}>kkkk</div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
-        الوظيفة
-    </div>
-</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         POSITION APPLIED FOR
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", }}>kkkk</div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+//         الوظيفة
+//     </div>
+// </div>
 
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
- MONTHLY SALARY    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//  MONTHLY SALARY    </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
         
-        الراتب الشهري
-    </div>
-</div>
+//         الراتب الشهري
+//     </div>
+// </div>
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        CONTRACT PERIOD
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
-    <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
-        مدة العقد
-    </div>
-</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         CONTRACT PERIOD
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "30%", fontSize: "12px", justifyContent: "center", color: "#AB1319" }}>
+//         مدة العقد
+//     </div>
+// </div>
 
 
-</div>
+// </div>
 
 
-                      <div  style={{width: "100%"}}>
-                      <img src={fullbodyapplicantimage} alt="Wider" className="wider-image" style={{width: "100%"}} />
-                      </div>  
+//                       <div  style={{width: "100%"}}>
+//                       <img src={fullbodyapplicantimage} alt="Wider" className="wider-image" style={{width: "100%"}} />
+//                       </div>  
 
 
                                           
 
 
 
-                    </div>
-                {/* header end */}
+//                     </div>
+//                 {/* header end */}
 
-                {/* full name section */}
+//                 {/* full name section */}
 
-                <div style={{display: "flex", marginTop: "10px", marginBottom: "10px"}}>
-                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#2ca2d4", background: "#CECEEF"}}>FULL NAME</div>
-                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
-                    <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#AB1319", background: "#CECEEF"}}>الاسم الاول</div>
-                </div>
+//                 <div style={{display: "flex", marginTop: "10px", marginBottom: "10px"}}>
+//                     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#2ca2d4", background: "#CECEEF"}}>FULL NAME</div>
+//                     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
+//                     <div style={{display: "flex", justifyContent: "center", border: "2px solid black", width: "25%", color: "#AB1319", background: "#CECEEF"}}>الاسم الاول</div>
+//                 </div>
 
-                <div className='table-main-parent' style={{display: "", height: "20px",  }}>
-                    <div style={{display: "flex", justifyContent: "space-between", border: "2px solid black", background: "#CECEEF" }}><span style={{marginLeft: "10px", color: "#2ca2d4"}}>DETAILS OF APPLICATION</span> <span style={{marginRight: "10px", color: "#AB1319"}}>بيانات صاحب الطلب</span></div>
-                    <div style={{display: "none", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
+//                 <div className='table-main-parent' style={{display: "", height: "20px",  }}>
+//                     <div style={{display: "flex", justifyContent: "space-between", border: "2px solid black", background: "#CECEEF" }}><span style={{marginLeft: "10px", color: "#2ca2d4"}}>DETAILS OF APPLICATION</span> <span style={{marginRight: "10px", color: "#AB1319"}}>بيانات صاحب الطلب</span></div>
+//                     <div style={{display: "none", justifyContent: "center", border: "2px solid black", width: "50%"}}></div>
                    
-                </div>
+//                 </div>
 
-                {/* full name section end */}
-
-
-                {/* full body image and table */}
+//                 {/* full name section end */}
 
 
-                <div className="table-main-parent" style={{background: "", height: "100%"}}>
-                    <div class="table-parent"  style={{background: "", height: "100%"}}>
+//                 {/* full body image and table */}
+
+
+//                 <div className="table-main-parent" style={{background: "", height: "100%"}}>
+//                     <div class="table-parent"  style={{background: "", height: "100%"}}>
 
 
 
-<div style={{color: "#2ca2d4"}}>NATIONALITY</div>
-<div></div>
-<div style={{color: "#AB1319"}}>الجنسية</div>
+// <div style={{color: "#2ca2d4"}}>NATIONALITY</div>
+// <div></div>
+// <div style={{color: "#AB1319"}}>الجنسية</div>
 
-<div style={{color: "#2ca2d4"}}>RELIGION</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>الديانة</div>
+// <div style={{color: "#2ca2d4"}}>RELIGION</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>الديانة</div>
 
-<div style={{color: "#2ca2d4"}}>DATE OF BIRTH</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>تاريخ الميلاد</div>
+// <div style={{color: "#2ca2d4"}}>DATE OF BIRTH</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>تاريخ الميلاد</div>
 
-<div style={{color: "#2ca2d4"}}>PLACE Of Birth</div>
-<div>dddd</div>
-<div style={{color: "#AB1319"}}>مكان الولادة</div>
+// <div style={{color: "#2ca2d4"}}>PLACE Of Birth</div>
+// <div>dddd</div>
+// <div style={{color: "#AB1319"}}>مكان الولادة</div>
 
-<div style={{color: "#2ca2d4"}}>AGE</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>العمر</div>
+// <div style={{color: "#2ca2d4"}}>AGE</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>العمر</div>
 
-<div style={{color: "#2ca2d4"}}>LIVING TOWN</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>مكان السكن</div>
+// <div style={{color: "#2ca2d4"}}>LIVING TOWN</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>مكان السكن</div>
 
-<div style={{height: 35, color: "#2ca2d4"}}>MARITAL STATUS</div>
-<div style={{height: 35,}}>ddd</div>
-<div style={{height: 35, color: "#AB1319"}}>الحالة الاجتماعية</div>
+// <div style={{height: 35, color: "#2ca2d4"}}>MARITAL STATUS</div>
+// <div style={{height: 35,}}>ddd</div>
+// <div style={{height: 35, color: "#AB1319"}}>الحالة الاجتماعية</div>
 
-<div style={{height: 35, color: "#2ca2d4"}} >NUMBER OF CHILDREN</div>
-<div style={{height: 35}}>dddd</div>
-<div style={{height: 35, color: "#AB1319"}}>عدد الاطفال</div>
+// <div style={{height: 35, color: "#2ca2d4"}} >NUMBER OF CHILDREN</div>
+// <div style={{height: 35}}>dddd</div>
+// <div style={{height: 35, color: "#AB1319"}}>عدد الاطفال</div>
 
-<div style={{color: "#2ca2d4",}}>WEIGHT</div>
-<div>dddd</div>
-<div style={{color: "#AB1319"}}>الوزن</div>
+// <div style={{color: "#2ca2d4",}}>WEIGHT</div>
+// <div>dddd</div>
+// <div style={{color: "#AB1319"}}>الوزن</div>
 
-<div style={{color: "#2ca2d4"}}>HEIGHT</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>الطول</div>
+// <div style={{color: "#2ca2d4"}}>HEIGHT</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>الطول</div>
 
-<div style={{color: "#2ca2d4"}}>COMPLEXION</div>
-<div>ddd</div>
-<div style={{color: "#AB1319"}}>لون البشرة</div>
+// <div style={{color: "#2ca2d4"}}>COMPLEXION</div>
+// <div>ddd</div>
+// <div style={{color: "#AB1319"}}>لون البشرة</div>
 
-<div style={{height: 35, color: "#2ca2d4"}}>EDUCATIONAL Qualification</div>
-<div style={{height: 35}}>ddd</div>
-<div style={{height: 35, color: "#AB1319"}}> الدرجة العلمية</div>
+// <div style={{height: 35, color: "#2ca2d4"}}>EDUCATIONAL Qualification</div>
+// <div style={{height: 35}}>ddd</div>
+// <div style={{height: 35, color: "#AB1319"}}> الدرجة العلمية</div>
 
-<div style={{width: "200px", color: "#2ca2d4"}}>CONTACT NUMBER</div>
-<div style={{borderColor: "transparent"}}></div>
-<div style={{borderColor: "transparent black transparent transparent"}}></div>
-
-
-<div style={{ width: "300px", fontSize: "15px", background: "#CECEEF", paddingLeft: "10px", position: "relative", zIndex: 2, display: "flex", justifyContent: "flex-start", borderColor: "black transparent black black" }}>
-    Previous experience
-</div>
-<div style={{ borderColor: "black transparent black transparent", background: "#CECEEF",  position: "relative", zIndex: -1, }}></div>
-<div style={{ borderColor: "black black black transparent", background: "#CECEEF",  position: "relative", zIndex: 1, }}></div>
+// <div style={{width: "200px", color: "#2ca2d4"}}>CONTACT NUMBER</div>
+// <div style={{borderColor: "transparent"}}></div>
+// <div style={{borderColor: "transparent black transparent transparent"}}></div>
 
 
-<div style={{color: "#2ca2d4"}}>COUNTRY</div>
-<div ></div>
-<div >  </div>
-
-<div style={{color: "#2ca2d4"}}>DURATION</div>
-<div ></div>
-<div >  </div>
-
-<div style={{color: "#2ca2d4"}}>POSITION</div>
-<div ></div>
-<div >  </div>
+// <div style={{ width: "300px", fontSize: "15px", background: "#CECEEF", paddingLeft: "10px", position: "relative", zIndex: 2, display: "flex", justifyContent: "flex-start", borderColor: "black transparent black black" }}>
+//     Previous experience
+// </div>
+// <div style={{ borderColor: "black transparent black transparent", background: "#CECEEF",  position: "relative", zIndex: -1, }}></div>
+// <div style={{ borderColor: "black black black transparent", background: "#CECEEF",  position: "relative", zIndex: 1, }}></div>
 
 
+// <div style={{color: "#2ca2d4"}}>COUNTRY</div>
+// <div ></div>
+// <div >  </div>
+
+// <div style={{color: "#2ca2d4"}}>DURATION</div>
+// <div ></div>
+// <div >  </div>
+
+// <div style={{color: "#2ca2d4"}}>POSITION</div>
+// <div ></div>
+// <div >  </div>
 
 
 
@@ -2168,145 +2166,659 @@ const TableToPdf = () => {
 
 
 
-</div>
-<div style={{ height: "100%", background: "" }}>
-    <div style={{ height: "100%" }}>
-        <img 
-            src={fullbodyapplicantimage !== null ? fullbodyapplicantimage : fullbodyapplicantimage} 
-            alt="Full Body" 
-            style={{ height: "100%", width: "100%", objectFit: "cover" }} 
-        />
-    </div>
-    {/* <div>
-        <img src={fullbodyapplicantimage} alt="Agent Logo" className="agent-logo" />
-    </div> */}
-</div>
-                    </div>
+
+
+// </div>
+// <div style={{ height: "100%", background: "" }}>
+//     <div style={{ height: "100%" }}>
+//         <img 
+//             src={fullbodyapplicantimage !== null ? fullbodyapplicantimage : fullbodyapplicantimage} 
+//             alt="Full Body" 
+//             style={{ height: "100%", width: "100%", objectFit: "cover" }} 
+//         />
+//     </div>
+//     {/* <div>
+//         <img src={fullbodyapplicantimage} alt="Agent Logo" className="agent-logo" />
+//     </div> */}
+// </div>
+//                     </div>
 
                   
 
-                {/* full body image and table end */}
+//                 {/* full body image and table end */}
 
 
-                {/* experience boolean */}
+//                 {/* experience boolean */}
 
 
-                 <div  style={{background: "red", height: "auto"}}>
+//                  <div  style={{background: "red", height: "auto"}}>
                 
                     
                 
-                                    <div className="specific-exp-atitle-sec" style={{borderColor: " black black transparent black", backgroundColor: "white"}}>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white black", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>تربية الاطفال</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>النظافة</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الغسيل</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الطبخ</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>العناية بالمسنين</div>
-                                    </div>
-                                    <div className="specific-exp-etitle-sec" style={{borderColor: "transparent black black black", backgroundColor: "white", }}>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>BABY SITTING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>CLEANING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>WASHING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-3px"}}>COOKING</div>
-                                        <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>ELDER CARE</div>
-                                    </div>
-                                    <div className="exp-trueorfalse-sec" style={{background: "white"}}>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>YES</div>
-                                        <div style={{background: "white"}}>NO</div>
-                                        <div style={{background: "white"}}>NO</div>
-                                    </div>
+//                                     <div className="specific-exp-atitle-sec" style={{borderColor: " black black transparent black", backgroundColor: "white"}}>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white black", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>تربية الاطفال</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>النظافة</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الغسيل</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>الطبخ</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#AB1319"}}>العناية بالمسنين</div>
+//                                     </div>
+//                                     <div className="specific-exp-etitle-sec" style={{borderColor: "transparent black black black", backgroundColor: "white", }}>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>BABY SITTING</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>CLEANING</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>WASHING</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-3px"}}>COOKING</div>
+//                                         <div style={{borderColor: "transparent black", backgroundColor: "white", display: "flex", flexDirection: "column", justifyContent: "flex-start", color: "#AB1319", marginTop: "-5px"}}>ELDER CARE</div>
+//                                     </div>
+//                                     <div className="exp-trueorfalse-sec" style={{background: "white"}}>
+//                                         <div style={{background: "white"}}>YES</div>
+//                                         <div style={{background: "white"}}>YES</div>
+//                                         <div style={{background: "white"}}>YES</div>
+//                                         <div style={{background: "white"}}>NO</div>
+//                                         <div style={{background: "white"}}>NO</div>
+//                                     </div>
                 
-                                    </div>
+//                                     </div>
 
 
-                {/* experience boolean end */}
+//                 {/* experience boolean end */}
 
 
-                {/* footer  */}
+//                 {/* footer  */}
 
 
-                <div style={{display: "grid", gridTemplateColumns: "50% 50%", marginTop: "20px", }}>
+//                 <div style={{display: "grid", gridTemplateColumns: "50% 50%", marginTop: "20px", }}>
 
 
-                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+//                  <div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
 
 
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        PASSPORT NO.
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         PASSPORT NO.
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
    
-</div>
+// </div>
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        DATE ISSUED
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         DATE ISSUED
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
    
-</div>
+// </div>
 
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        DATE EXPIRY
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         DATE EXPIRY
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
    
-</div>
+// </div>
 
 
-<div style={{ display: "flex", alignItems: "center" }}>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
-        PLACE OF ISSUE
-    </div>
-    <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
+// <div style={{ display: "flex", alignItems: "center" }}>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center", color: "#2ca2d4" }}>
+//         PLACE OF ISSUE
+//     </div>
+//     <div style={{ display: "flex", border: "2px solid black", width: "45%", fontSize: "12px", justifyContent: "center" }}>kkkk</div>
    
-</div>
+// </div>
 
 
-</div>
+// </div>
 
 
-                      <div  style={{width: "100%", border: "2px solid black", }}>
+//                       <div  style={{width: "100%", border: "2px solid black", }}>
 
-                      <div style={{color: "#2ca2d4", fontWeight: "bold", marginLeft: "5px"}}>REMARK</div>
+//                       <div style={{color: "#2ca2d4", fontWeight: "bold", marginLeft: "5px"}}>REMARK</div>
 
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS FIRST TIME.</div>
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN DO ALL AROUND HOUSEHOLD CHORES.</div>
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO TAKE CARE BABY.</div>
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN WASH AND IRON CLOTHES.</div>
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO LEARN ARABIC FOOD WITH HELP OF THE SPONSOR.</div>
-                      <div style={{ fontSize: "10px", marginLeft: "5px"}}>FAIR/ENGLISH LANGUAGE.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS FIRST TIME.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN DO ALL AROUND HOUSEHOLD CHORES.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO TAKE CARE BABY.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE CAN WASH AND IRON CLOTHES.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>SHE IS WILLING TO LEARN ARABIC FOOD WITH HELP OF THE SPONSOR.</div>
+//                       <div style={{ fontSize: "10px", marginLeft: "5px"}}>FAIR/ENGLISH LANGUAGE.</div>
 
 
-                      </div>  
+//                       </div>  
 
 
                                           
 
 
 
-                    </div>
+//                     </div>
 
-                {/* footer end */}
+//                 {/* footer end */}
 
 
-               </div>
+//                </div>
               
 
-            </div>
-            <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
-                Generate PDF
-            </button>
-        </div>
-    );
-};
+//             </div>
+//             <button onClick={downloadMultipleCVs} style={{ marginTop: '20px' }}>
+//                 Generate PDF
+//             </button>
+//         </div>
+//     );
+// };
 
-export default TableToPdf;
+// export default TableToPdf;
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+import  React, {useRef} from 'react';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import Checkbox from '@mui/material/Checkbox'; // Import Checkbox
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete'; 
+import IconButton from '@mui/material/IconButton';
+import { useNavigate } from 'react-router-dom';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Header from "../screens/header";
+
+import html2pdf from 'html2pdf.js';
+import embassylistpdftopimage from "../../src/image_placeholder/embassylistpdftopimage.png"
+import Barcode from 'react-barcode';
+
+
+const columns = [
+  { id: 'name', label: 'Name', minWidth: 170 },
+  { id: 'surname', label: 'Surname', minWidth: 100 },
+  { id: 'currentNationality', label: 'Nationality', minWidth: 170 },
+  { id: 'postappliedfor', label: 'Position', minWidth: 170 },
+  { id: 'createdAt', label: 'Created At', minWidth: 170 },
+  { id: 'actions', label: 'Actions', minWidth: 100 },
+];
+
+export default function StickyHeadTable() {
+  const [selected, setSelected] = React.useState([]); // State for selected rows
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rows, setRows] = React.useState([]);
+  const navigate = useNavigate();
+  const [isAnyChecked, setIsAnyChecked] = React.useState(false);
+
+  const selectedRows = rows.filter(row => selected.includes(row.id));
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://skywayapi.ntechagent.com/tt');
+        const result = await response.json();
+        if (result.status === 'ok') {
+          const sortedData = result.data
+            .filter(item => item.createdAt)
+            .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+          setRows(sortedData);
+        }
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleSelectAllClick = (event) => {
+
+
+    if (event.target.checked) {
+        const newSelecteds = rows.map((row) => row.id);
+        setSelected(newSelecteds);
+        setIsAnyChecked(true); // Set to true if any checkbox is checked
+        return;
+      }
+      setSelected([]);
+      setIsAnyChecked(false); // 
+
+
+    // if (event.target.checked) {
+    //   const newSelecteds = rows.map((row) => row.id);
+    //   setSelected(newSelecteds);
+    //   return;
+    // }
+    // setSelected([]);
+  };
+
+//   const handleSelectAllClick = (event) => {
+//     if (event.target.checked) {
+//       const newSelecteds = rows.map((row) => row.id);
+//       setSelected(newSelecteds);
+//       setIsAnyChecked(true); // Set to true if any checkbox is checked
+//       return;
+//     }
+//     setSelected([]);
+//     setIsAnyChecked(false); // Set to false if all checkboxes are unchecked
+//   };
+  
+  const handleClick = (id) => {
+    const selectedIndex = selected.indexOf(id);
+    let newSelected = [];
+  
+    if (selectedIndex === -1) {
+      newSelected = newSelected.concat(selected, id);
+    } else if (selectedIndex === 0) {
+      newSelected = newSelected.concat(selected.slice(1));
+    } else if (selectedIndex === selected.length - 1) {
+      newSelected = newSelected.concat(selected.slice(0, -1));
+    } else if (selectedIndex > 0) {
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1),
+      );
+    }
+  
+    setSelected(newSelected);
+    setIsAnyChecked(newSelected.length > 0); // Update visibility based on selected count
+  };
+
+
+//   const handleDownload = () => {
+//     // Implement download logic here
+//     console.log('Download button clicked. Selected IDs:', selected);
+//     // For example: trigger a download of selected items
+//   };
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  
+
+const pdfRef = useRef();
+
+  const downloadCV = () => {
+    const element = pdfRef.current;
+  
+    // Configuration for html2pdf
+    const isMobile = window.innerWidth <= 768; // Adjust based on your breakpoints
+    const config = {
+      filename: 'Embassy_list.pdf',
+      margin: [1, 0.2, 0, 0.2],
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: isMobile ? 1 : 2, logging: true, dpi: 300, letterRendering: true },
+      jsPDF: { unit: 'mm', format: isMobile ? 'A4' : 'letter', orientation: 'Portrait' }
+    };
+  
+    html2pdf()
+      .from(element)
+      .set(config)
+      .toPdf()
+      .get('pdf') 
+      .then(pdf => {
+        const totalPages = pdf.internal.getNumberOfPages();
+        const phoneNumber = `${dayName}, ${monthName} ${dayNumber}, ${year}`; // Replace with your phone number
+        const email = "www.ntechagent.com | +251 911 454176 | ntechagent@gmail.com"; // Replace with your email
+  
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+          pdf.setFontSize(10);
+          pdf.setTextColor(5);
+  
+          // Set positions
+          const pageYPosition = pdf.internal.pageSize.getHeight() - 10; // Y position for footer
+          const leftXPosition = 3; // X position for left side text
+          const rightXPosition = pdf.internal.pageSize.getWidth() - 22; // Base position for page number
+          const centerXPosition = pdf.internal.pageSize.getWidth() / 2 + 10; // Center position
+  
+          // Add phone number on the left
+          pdf.text(`${phoneNumber}`, leftXPosition, pageYPosition);
+  
+          // Add email in the center
+          pdf.text(` ${email}`, centerXPosition, pageYPosition, { align: 'center' });
+  
+          // Add page number and total pages to the footer on the right
+          pdf.text(`Page ${i} of ${totalPages}`, rightXPosition, pageYPosition);
+          // pdf.text(`${email}`, rightXPosition, pageYPosition);
+        }
+      })
+      .save();
+  };
+  
+
+
+
+
+  const today = new Date();
+  // Format the date as MM/DD/YYYY
+  const formattedTodayDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+
+
+
+
+   // Get today's date
+  //  const today = new Date();
+
+   // Define arrays for day and month names
+   const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+   const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+ 
+   // Get the required date parts
+   const dayName = dayNames[today.getDay()];
+   const monthName = monthNames[today.getMonth()];
+   const dayNumber = today.getDate();
+   const year = today.getFullYear();
+
+   const handleRowClick = (id) => {
+    navigate(`/list/${id}`);
+  }; 
+
+  
+  
+  return (
+    <>
+      <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Header />
+        <TableContainer sx={{ maxHeight: 440 }}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                <TableCell padding="checkbox">
+                  <Checkbox
+                    color="primary"
+                    indeterminate={selected.length > 0 && selected.length < rows.length}
+                    checked={rows.length > 0 && selected.length === rows.length}
+                    onChange={handleSelectAllClick}
+                  />
+                </TableCell>
+                {columns.map((column) => (
+                  <TableCell key={column.id} align={column.align} style={{ minWidth: column.minWidth }}>
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+  {rows
+    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+    .map((row) => {
+      const isSelected = selected.indexOf(row.id) !== -1;
+      return (
+        <TableRow
+          hover
+          role="checkbox"
+          tabIndex={-1}
+          key={row.id}
+          onClick={(event) => { 
+            // event.stopPropagation(); // Prevent row click from toggling checkbox
+            handleRowClick(row.name + "-" + row.middleName + "-" + row.surname + "_" + row.createdAt);
+          }}
+          selected={isSelected}
+        >
+          <TableCell padding="checkbox">
+            <Checkbox
+              color="primary"
+              checked={isSelected}
+              onChange={(event) => {
+                event.stopPropagation(); // Prevent checkbox click from triggering row click
+                handleClick(row.id);
+              }}
+
+              onClick={(event) => { event.stopPropagation(); /* Edit functionality */ }}
+            />
+          </TableCell>
+          {columns.map((column) => {
+            const value = row[column.id];
+            return (
+              <TableCell key={column.id} align={column.align}>
+                {column.id === 'actions' ? (
+                  <>
+                    <IconButton onClick={(event) => { event.stopPropagation(); /* Edit functionality */ }}>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton color="error" onClick={(event) => { event.stopPropagation(); /* Delete functionality */ }}>
+                      <DeleteIcon />
+                    </IconButton>
+                    <IconButton onClick={(event) => { event.stopPropagation(); /* Menu functionality */ }}>
+                      <MoreVertIcon />
+                    </IconButton>
+                  </>
+                ) : (
+                  value
+                )}
+              </TableCell>
+            );
+          })}
+        </TableRow>
+      );
+    })}
+</TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
+      </Paper>
+
+      <TablePagination
+  rowsPerPageOptions={[10, 25, 100]}
+  component="div"
+  count={rows.length}
+  rowsPerPage={rowsPerPage}
+  page={page}
+  onPageChange={handleChangePage}
+  onRowsPerPageChange={handleChangeRowsPerPage}
+/>
+
+{/* New Table for Selected Applicants */}
+<Paper sx={{ marginTop: 2 }}>
+  <TableContainer>
+    <Table aria-label="selected applicants table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+          <TableCell>Surname</TableCell>
+          <TableCell>Nationality</TableCell>
+          <TableCell>Position</TableCell>
+          <TableCell>Created At</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {selectedRows.map((row, index) => (
+          <TableRow key={row.id}>
+            <TableCell>{index + 1}</TableCell>
+            <TableCell>{row.name}</TableCell>
+            <TableCell>{row.surname}</TableCell>
+            <TableCell>{row.currentNationality}</TableCell>
+            <TableCell>{row.postappliedfor}</TableCell>
+            <TableCell>{new Date(row.createdAt).toLocaleDateString()}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  </TableContainer>
+</Paper>
+
+{isAnyChecked && (
+  <button onClick={downloadCV} style={{ marginTop: '20px' }}>
+    Download
+  </button>
+)}
+
+
+<div style={{display: "none"}}>
+<div id="embassy_list" ref={pdfRef}>
+  <div style={{ background: "", marginTop: "20px", display: "flex", justifyContent: "center" }}>
+    <img
+      src={embassylistpdftopimage}
+      alt="header"
+      style={{ maxWidth: '98%',  }} // Ensures the image is contained
+    />
+  </div>
+
+  <div style={{ background: "", display: "flex", justifyContent: "center" }}>
+    {/* <table style={{ 
+      maxWidth: '97%', 
+      minWidth: '97%', 
+      background: '', 
+      borderCollapse: 'collapse',  // Ensures borders are collapsed
+      marginTop: "10px"
+    }}>
+      <thead>
+        <tr>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>SNo</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Applicant Name</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Passport #</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Sponsor ID</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Visa No.</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Application No</th>
+          <th style={{ border: '1px solid black', padding: '8px', textAlign: 'left', fontSize: "12px" }}>Bar Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        {selectedRows.map((row, index) => (
+          <tr key={row.id}>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{index + 1}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{row.name}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{row.passportnum}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{row.sponsorId}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{row.visaNo}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{row.applicationNo}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>hhhhhhhhhhhh</td>
+          </tr>
+        ))}
+      </tbody>
+    </table> */}
+
+
+
+
+    <table style={{ maxWidth: '97%', 
+      minWidth: '97%',  borderCollapse: 'collapse', marginTop: "20px" }}>
+    <thead>
+        <tr>
+            <th style={{ border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>SNo</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}> </span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Applicant Name</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>الاسم الأوسط</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Passport #</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>اسم العائلة</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Sponsor ID</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>اللقب</span>
+                </div>
+            </th>
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Visa No.</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>رمز السيرة الذاتية</span>
+                </div>
+            </th>
+
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Application No</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>رمز السيرة الذاتية</span>
+                </div>
+            </th>
+
+            <th style={{ backgroundColor: '', border: '1px solid black', padding: '4px', color: 'white', textAlign: 'left' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                    <span style={{ fontSize: '10px', color: 'black' }}>Bar Code</span>
+                    <span style={{ fontSize: '10px', color: 'black', display: "none" }}>رمز السيرة الذاتية</span>
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {/* <tr>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV{}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>CV{}</td>
+        </tr> */}
+
+        {selectedRows.map((row, index) => ( 
+            
+            <tr >
+
+{/* <td style={{ border: '1px solid black', padding: '8px', fontSize: "12" }}>{index + 1}</td> */}
+            {/* <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>{row.name}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>{row.passportnum}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>{row.sponsorId}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>{row.visaNo}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>{row.applicationNo}</td>
+            <td style={{ border: '1px solid black', padding: '8px', fontSize: "12px" }}>hhhhhhhhhhhh</td> */}
+
+
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{index + 1}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{row.name} {row.middleName} {row.surname}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{row.passportnum}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{row.sponsorId}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{row.visaNo}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>{row.applicationNo}</td>
+            <td style={{ border: '1px solid black', padding: '4px', textAlign: 'center', fontSize: '10px' }}>
+    <Barcode
+        displayValue={false}
+        value={row.applicationNo && row.applicationNo.length === 10 ? row.applicationNo : "E333777777"}
+        height={23}
+        width={1.7}
+        marginBottom={1}
+    />
+</td>
+
+            </tr>
+            
+            ))}
+       
+    </tbody>
+</table>
+
+
+
+  </div>
+</div>
+</div>
+    </>
+  ); 
+}

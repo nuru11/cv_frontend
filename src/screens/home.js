@@ -1760,8 +1760,8 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         setShowModal(false);
         const pdfElements = [
             
-            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter"  },
-            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion}` || 'Default_Name'}.pdf`, margin: 0.5, format: "letter"  },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname}  Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
             { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
             { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
             { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
