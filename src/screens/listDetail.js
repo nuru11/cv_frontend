@@ -747,12 +747,12 @@ const downloadCV = () => {
 
 
         const pdfElements = [
-          { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${data.name} ${data.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5 , format: "letter" },
-          {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleFour ? 'cvAssawsanahContent' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleThree ? 'cvBarakaContent' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
-          { elementId: styles.styleKaan ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadhCv.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
-          {elementId: styles.styleQimam ? 'QimamAsiaCv' : "", filename: 'QimamAsiaCv.pdf', margin: [1, 0.9, 1, 1], format: "a4" },
+          { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Bela Hodod`}.pdf`, margin: 0.5 , format: "letter" },
+          {  elementId: styles.styleOne ? 'cvContent2' : "", filename:  `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Golden`}.pdf`, margin: 0.5, format: "letter" },
+          { elementId: styles.styleFour ? 'cvAssawsanahContent' : "", filename:  `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Baraka`}.pdf`, margin: 0.5, format: "letter" },
+          { elementId: styles.styleThree ? 'cvBarakaContent' : "", filename:  `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Skyway`}.pdf`, margin: 0.5, format: "letter" },
+          { elementId: styles.styleKaan ? 'KaanAlRiyadhCv' : "", filename:  `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Kaan AlRiyadh`}.pdf`, margin: [0, 0.2, 0, 0.2], format: "a4" },
+          {elementId: styles.styleQimam ? 'QimamAsiaCv' : "", filename:  `${`${data.name} ${data.middleName} ${data.surname} ${data.religion} ${JSON.parse(data.experience)[0].name ? JSON.parse(data.experience)[0].name + " Experienced"  : "First TIme"} Qimam Asia`}.pdf`, margin: [1, 0.9, 1, 1], format: "a4" },
           {elementId: styles.styleFive ? "embassy" : "", filename: "Embassycv.pdf", margin: 0.5, format: "letter"}
             
             
@@ -1154,7 +1154,7 @@ const downloadCV = () => {
                       // disabled={age < 18} // Disable if age is less than 18
                   />
               }
-              label="Assawsanah"
+              label="Skyway"
           />
           <FormControlLabel
               control={

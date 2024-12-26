@@ -1655,12 +1655,12 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
 
         const pdfElements = [
             
-            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: 'Golden agen.pdf', margin: 0.5, format: "letter"  },
-            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.email} Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
-            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
-            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
-            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
-            {elementId: styles.QimamCvStyle ? "QimamAsiaCv" : "", filename: 'qimamcv.pdf', margin: [1, 0.9, 1, 1], format: "a4" },
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Golden`}.pdf`, margin: 0.5, format: "letter"  },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Bela Hodod`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleThree ? 'cvContent3' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Skyway`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleFour ? 'cvContent4' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Baraka`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Kaan AlRiyadh`}.pdf`, margin: [0, 0.2, 0, 0.2], format: "a4" },
+            {elementId: styles.QimamCvStyle ? "QimamAsiaCv" : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Qimam Asia`}.pdf`, margin: [1, 0.9, 1, 1], format: "a4" },
            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
            // Add more elements as needed
        ];
@@ -1760,12 +1760,12 @@ personalInfo.dateOfBirth = !personalInfo.dateOfBirth ? formattedDate : personalI
         setShowModal(false);
         const pdfElements = [
             
-            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion}` || 'Default_Name'}.pdf`, margin: 0.5, format: "letter"  },
-            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname}  Bela Hodod` || 'Default_Name'}_CV_Style1.pdf`, margin: 0.5, format: "letter" },
-            { elementId: styles.styleThree ? 'cvContent3' : "", filename: 'Skyway.pdf', margin: 0.5, format: "letter" },
-            { elementId: styles.styleFour ? 'cvContent4' : "", filename: 'Baraka.pdf', margin: 0.5, format: "letter" },
-            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: 'KaanAlRiyadh.pdf', margin: [0, 0.2, 0, 0.2], format: "a4" },
-            {elementId: styles.QimamCvStyle ? "QimamAsiaCv" : "", filename: 'qimamcv.pdf', margin: [1, 0.9, 1, 1], format: "a4" },
+            {  elementId: styles.styleOne ? 'cvContent2' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Golden`}.pdf`, margin: 0.5, format: "letter"  },
+            { elementId: styles.styleTwo ? 'cvContent1' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Bela Hodod`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleThree ? 'cvContent3' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Skyway`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.styleFour ? 'cvContent4' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Baraka`}.pdf`, margin: 0.5, format: "letter" },
+            { elementId: styles.kaanCvStyle ? 'KaanAlRiyadhCv' : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} KaanAlRiyadh`}.pdf`, margin: [0, 0.2, 0, 0.2], format: "a4" },
+            {elementId: styles.QimamCvStyle ? "QimamAsiaCv" : "", filename: `${`${personalInfo.name} ${personalInfo.middleName} ${personalInfo.surname} ${personalInfo.religion} ${projectInfo.project[0].name ? projectInfo.project[0].name + " Experienced" : "first time"} Qimam Asia`}.pdf`, margin: [1, 0.9, 1, 1], format: "a4" },
            // { elementId: styles.styleFive ? 'cvContent5' : "", filename: 'Al Wasit.pdf' },
            // Add more elements as needed
        ];
