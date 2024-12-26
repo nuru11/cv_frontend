@@ -1170,7 +1170,7 @@ const downloadCV = () => {
 
 
 <FormControlLabel
-              control={
+              control={ 
                   <Checkbox
                       checked={styles.styleKaan}
                       onChange={handleStyleChange}
