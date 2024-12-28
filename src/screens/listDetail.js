@@ -1078,11 +1078,19 @@ const downloadCV = () => {
           
 
           <Grid item xs={12}>
-            <Typography variant="h6">Experience:</Typography>
+            {/* <Typography variant="h6">Experience:</Typography>
             {data.experience && JSON.parse(data.experience).map(exp => (
               <Typography key={exp.id} variant="body2">
                 {exp.name} - {exp.link} - {exp.overview} Years
+              </Typography> */}
+
+<Typography variant="h6">Experience:</Typography>
+            {data.experience && JSON.parse(data.experience).map(exp => (
+              <Typography key={exp.id} variant="body2">
+                {!exp.name && !exp.link && !exp.overview ? "No Experience" : ""}
+                {exp.name ? exp.name + " -" : ""} {exp.link ? exp.link + " -" : ""}  {exp.overview ? exp.overview + " Years": ""} 
               </Typography>
+              
             ))}
 
             {/* {data.experience.map(i => i.name)}dfsdfs */}
