@@ -1216,11 +1216,11 @@ const downloadCV = () => {
               Copy Link
             </Button>
           </Grid>
-          <Grid item>
+          {/* <Grid item>
             <Button variant="contained" color="default" onClick={handleInstall}>
               Send
             </Button>
-          </Grid>
+          </Grid> */}
           <Grid item>
             <Button
               variant="contained"
