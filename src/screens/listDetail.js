@@ -3215,7 +3215,7 @@ src={data.passportImageUrl || imagePlaceholder}
                                 <Barcode value={"E776062468"} fontWeight={"bold"} height={23} width={1.7} marginBottom={2} />
                                 
                             </div>
-                            <div style={{ marginTop: "5px", fontFamily: "serif", fontSize: "13px", display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "center", background: "none"  }}>
+                            <div style={{ marginTop: "5px", fontFamily: "serif", fontSize: "13px", display: "flex", flexDirection: "column", justifyContent: "flex-end", alignItems: "center", background: "none", marginRight: "20px"  }}>
     <div style={{fontFamily: "serif", textAlign: "center" }}>
         EMBASSY OF SAUDI ARABIA
     </div>
@@ -3223,13 +3223,21 @@ src={data.passportImageUrl || imagePlaceholder}
         CONSULAR SECTION
     </div>
 
-    <div style={{ fontFamily: "serif", textAlign: "center", fontSize: "18px", marginTop: "5px", fontWeight: "bold" }}>
+    <div style={{ fontFamily: "serif", textAlign: "center", fontSize: "18px", marginTop: "10px", fontWeight: "bold" }}>
         سفارة المملكة العربية السعودية القسم القنصلي
     </div>
+
+    <div style={{fontFamily: "serif",  fontSize: "12px", background: "none", marginTop: "10px",}} >SKY WAY FOREIGN EMPLOYMENT AGENT</div>
+<div style={{fontFamily: "serif", marginTop: "10px", fontWeight: "bold", }}>skywayagencyoffice@gmail.com</div>
 </div>
 
-<div style={{fontFamily: "serif",  fontSize: "12px", background: "none", marginTop: "20px", marginLeft: "-18px" }} >SKY WAY FOREIGN EMPLOYMENT AGENT</div>
-<div style={{fontFamily: "serif", marginTop: "10px", fontWeight: "bold", marginLeft: "-10px"}}>skywayagencyoffice@gmail.com</div>
+{/* <div style={{fontFamily: "serif",  fontSize: "12px", background: "none", marginTop: "20px", marginLeft: "-18px" }} >SKY WAY FOREIGN EMPLOYMENT AGENT</div>
+<div style={{fontFamily: "serif", marginTop: "10px", fontWeight: "bold", marginLeft: "-10px"}}>skywayagencyoffice@gmail.com</div> */}
+
+{/* <div style={{fontFamily: "serif",  fontSize: "12px", background: "none", marginTop: "20px", marginLeft: "" }} >SKY WAY FOREIGN EMPLOYMENT AGENT</div>
+<div style={{fontFamily: "serif", marginTop: "10px", fontWeight: "bold", marginLeft: "10px", marginRight: ""}}>skywayagencyoffice@gmail.com</div> */}
+
+
 </div>
  
     
