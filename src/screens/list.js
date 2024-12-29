@@ -1157,6 +1157,60 @@ export default function StickyHeadTable() {
     }
   };
 
+
+  ///////////////////////////////////////////////////   delete multiple applications
+  const [message, setMessage] = React.useState('');
+
+
+  const handleDeleteImages = async (e) => {
+    e.preventDefault();
+    setMessage('');
+
+
+    const confirmDelete = window.confirm('Are you sure you want to delete these items?');
+  
+    // Assuming 'selected' is a string of comma-separated IDs
+    const idArray = selected
+  
+    if (idArray.length === 0) {
+      setMessage('Please enter valid IDs.');
+      return;
+    }
+
+    if (confirmDelete) {
+  
+    try {
+      const response = await fetch('https://skywayapi.ntechagent.com/deletemultipeapplicants', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ids: idArray }), // Use idArray here
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+  
+        // Update state by filtering out the deleted rows
+        setRows(rows.filter(row => !idArray.includes(row.id))); // Use includes here
+  
+        setMessage(`Successfully deleted ${data.deletedCount} images.`);
+        
+      } else {
+        const errorData = await response.json();
+        setMessage(errorData.message || 'Error deleting images.');
+      }
+    } catch (error) {
+      console.error('Error deleting images:', error);
+      setMessage('An error occurred while deleting images.');
+    }
+  }
+  };
+
+
+
+  ///////////////////////////////////////////////////    delete multiple end
+
   const handleEdit = (row) => {
     setEditData(row);
     setOpen(true);
@@ -1506,6 +1560,15 @@ export default function StickyHeadTable() {
     Download summary
   </button>
 )}
+
+
+{isAnyChecked && (
+  <button onClick={handleDeleteImages} style={{ marginTop: '20px', marginLeft: "30px", marginBottom: "20px", background: "red" }}>
+    delete
+  </button>
+)}
+
+
       {/* Edit Modal */}
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit Entry</DialogTitle>
